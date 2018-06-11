@@ -1,0 +1,46 @@
+FORMAT: 1A
+HOST: http://teamdirectory.apiblueprint.org/
+
+# TeamDirectory
+
+## Users Collection [/api/users]
+
+### Get User by id [GET /api/users/{id}]
++ Parameters
+    + id(number, required) - Id of a User
+    
++ Response 200 (application/json)
+
+        
+            {
+                "id": 123,
+                "name": "John Doe",
+                "age": 20,
+                "astrologicalSign": "Virgo",
+                "course": "Wirtschaftsinformatik"
+            }
+    
+
+## Comments Collection [/api/comments/]
+
+### Create a New Comment [POST]
+
++ Request (application/json)
+
+        {
+            "posterId": 123,
+            "receiverId": 321,
+            "body": "Lorem ipsum dolor sit amet"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+    
+            {
+                "posterId": 123,
+                "receiverId": 321,
+                "author": "John Doe",
+                "published_at": "2018-06-15:03:54.620Z",
+                "body": "Lorem ipsum dolor sit amet"
+            }
