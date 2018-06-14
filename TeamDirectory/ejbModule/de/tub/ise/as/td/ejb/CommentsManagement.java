@@ -2,13 +2,12 @@ package de.tub.ise.as.td.ejb;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import de.tub.ise.as.td.entity.User;
+import de.tub.ise.as.td.entity.Comment;
 
 /**
  * EJB -- Stateless Session Bean
@@ -16,16 +15,13 @@ import de.tub.ise.as.td.entity.User;
  *
  */
 @Stateless
-public class UserManagement {
+public class CommentsManagement {
 	
 	@PersistenceContext
 	EntityManager em;
 	
-	@EJB
-	ApplicationInit userInit;
-	
-	public List<User> getUsers() {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
+	public List<Comment> getComments() {
+		TypedQuery<Comment> query = em.createQuery("SELECT u FROM Comment u", Comment.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
 		return query.getResultList();
 	}
 	
