@@ -7,21 +7,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "USERTABLE")
+/**
+ * Beispielentität
+ * @author Sebastian Führ
+ *
+ */
+@Entity //für JPA wichtig
+@Table(name = "USERTABLE") //optionale Notation
 public class User implements Serializable {
 	private static final long serialVersionUID = -577432887255987479L;
-	@Id
-	@GeneratedValue
+	@Id //IDs werden für jedes DBS benötigt (Primärschlüssel)
+	@GeneratedValue //Die ID wird automatisch gesetzt und hochgezählt (generiert)
 	int id;
-	String name;
+	String name,
+		   surname,
+		   university,
+		   studyCourse;
+	int userAge;
 	
 	public User() {
 		super();
 	}
 	
-	public User(String name) {
+	public User(String name, String surname) {
 		this.name = name;
+		this.surname = surname;
 	}
 	
 	public int getId() {
@@ -35,6 +45,38 @@ public class User implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String vorname) {
+		this.surname = vorname;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public int getAge() {
+		return userAge;
+	}
+
+	public void setAge(int alter) {
+		this.userAge = alter;
+	}
+
+	public String getStudyCourse() {
+		return studyCourse;
+	}
+
+	public void setStudyCourse(String studyCourse) {
+		this.studyCourse = studyCourse;
 	}
 	
 }
