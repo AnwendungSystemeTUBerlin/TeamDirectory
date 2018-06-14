@@ -29,4 +29,14 @@ public class UserManagement {
 		return query.getResultList();
 	}
 	
+	public User getUser(int userID) {
+		List<User> users = em.createQuery("SELECT u FROM User u", User.class).getResultList();
+		for (int i=0; i < users.size(); i++) {
+			if (users.get(i).getId() == userID) {
+				return users.get(i);
+			}
+		}
+		return null;
+	}
+	
 }
