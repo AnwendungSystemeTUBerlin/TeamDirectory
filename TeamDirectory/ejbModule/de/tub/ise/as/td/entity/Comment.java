@@ -68,4 +68,20 @@ public class Comment implements Serializable {
 		this.content = content;
 	}
 
+	public int getPosterID() {
+		return posterID;
+	}
+
+	public void setPosterID(int posterID) {
+		this.posterID = posterID;
+	}
+
+	public int getReceiverID() {
+		return receiverID;
+	}
+
+	public void setReceiverID(int receiverID) {
+		this.receiverID = receiverID;
+	}
+
 }
