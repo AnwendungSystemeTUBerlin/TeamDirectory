@@ -25,4 +25,24 @@ public class CommentsManagement {
 		return query.getResultList();
 	}
 	
+	public Comment getCommentByPosterID(int posterID) {
+		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
+		for (int i=0; i<comments.size(); i++) {
+			if (comments.get(i).getPosterID() == posterID) {
+				return comments.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public Comment getCommentByReceiverID(int receiverID) {
+		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
+		for (int i=0; i<comments.size(); i++) {
+			if (comments.get(i).getReceiverID() == receiverID) {
+				return comments.get(i);
+			}
+		}
+		return null;
+	}
+	
 }
