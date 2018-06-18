@@ -10,6 +10,10 @@ import javax.persistence.TypedQuery;
 
 import de.tub.ise.as.td.entity.User;
 
+/**
+ * EJB -- Stateless Session Bean
+ *
+ */
 @Stateless
 public class UserManagement {
 	
@@ -17,11 +21,31 @@ public class UserManagement {
 	EntityManager em;
 	
 	@EJB
-	UserInit userInit;
+	ApplicationInit userInit;
 	
+	/**
+	 * Gibt alle in der Datenbank gespeicherten User zurück.
+	 * @return Liste von User.
+	 */
 	public List<User> getUsers() {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
+		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
 		return query.getResultList();
+	}
+	
+	/**
+	 * Gibt einen bestimmten Benutzer zurück, der die übergebene ID besitzt.
+	 * 
+	 * @param userID
+	 * @return User
+	 */
+	public User getUser(int userID) {
+		List<User> users = em.createQuery("SELECT u FROM User u", User.class).getResultList();
+		for (int i=0; i < users.size(); i++) {
+			if (users.get(i).getId() == userID) {
+				return users.get(i);
+			}
+		}
+		return null;
 	}
 	
 }
