@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>All users</title>
+
+	<!-- Importing external CSS -->
+	<link rel="stylesheet" href="../css/frameworks/bootstrap.css">
+    <link rel="stylesheet" href="../css/frameworks/mdb.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!-- Importing custom CSS -->
+	<link rel="stylesheet" href="../css/headers.css">
+	<link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <!-- Importing external scripts -->
+    <script type="text/javascript" src="../js/frameworks/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/popper.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/mdb.min.js"></script>
+
+    <!-- Importing custom scripts -->
+    <script src="../js/linksSmoothScrolling.js"></script>
+    <script src="../js/navbarAnimation.js"></script>
+    <script src="../js/alumniTable.js"></script>
+    <script type="text/javascript" src="../js/copySymbol.js"></script>
+    <script type="text/javascript" src="../js/requests.js"></script>
+    <script src="../js/realWebsite.js"></script>
+
+    <!-- Navigation bar -->
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#homeSection"> <b>Team Directory</b></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#homeSection">Home</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="../index.html#aboutSection">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#faqSection">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#contactSection">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="searchUsers">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 p-0">
+                    <div class="md-form">
+                        <input type="text" onkeyup='searchTable()' id="searchInput" class="form-control">
+                        <label for="name2" class="">Search</label>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark" id="databaseTable">
+                        <thead>
+                            <tr>
+                                <th scope="col" onclick="sortTable(0)">User-ID</th>
+                                <th scope="col" onclick="sortTable(1)">Name</th>
+                                <th scope="col" onclick="sortTable(2)">Alter</th>
+                                <th scope="col" onclick="sortTable(3)">Sternzeichen</th>
+                                <th scope="col" onclick="sortTable(4)">Studiengang</th>
+                                <th scope="col" onclick="sortTable(5)">Email</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="theTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="currentUser">
+        <div class="container">
+
+            <div class="row">
+                <div class"col-md-8 col-xl-9">
+                    <!-- Section heading -->
+                    <h2 class="section-heading h1 pt-4">Current User</h2>
+
+                    <!--Section description-->
+                    <p class="section-description">
+                        This is the user you have selected!
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class"col-md-8 col-xl-9">
+                    <div id="#currentUserProfile">
+
+                        <!-- Card header -->
+                      <!-- <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
+                        <p class="mr-4 mb-0">About author</p>
+                        <ul class="list-unstyled list-inline mb-0">
+                          <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fa fa-envelope mr-1"></i>Send message</a></li>
+                          <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fa fa-user mr-1"></i>See profile</a></li>
+                          <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fa fa-feed mr-1"></i>Follow</a></li>
+                        </ul>
+                      </div> -->
+
+                      <div class="media mt-4 px-1">
+                        <img id="currentUserPhoto" class="card-img-100 rounded-circle d-flex z-depth-1 mr-3" src="http://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" alt="Generic placeholder image">
+                        <div class="media-body">
+
+                          <h5 class="font-weight-bold mt-0">
+                            <a id="currentUserName" class="text-default" href="">Danny Newman</a>
+                          </h5>
+
+
+                          <ul class="list-unstyled list-inline mb-2 pt-1">
+                            <li class="list-inline-item">
+                              <a class="grey-text mr-1"><i class="fa fa-lg fa-facebook"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="grey-text mr-1"><i class="fa fa-lg fa-twitter"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="grey-text mr-1"><i class="fa fa-lg fa-google-plus"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="grey-text mr-1"><i class="fa fa-lg fa-linkedin"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="grey-text mr-1"><i class="fa fa-lg fa-instagram"> </i></a>
+                            </li>
+                          </ul>
+
+                          <ul class="list-unstyled mb-2 pt-1">
+                            <li class="">
+                              <a id="currentUserId" class="grey-text mr-1">User-ID: </i></a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserAlter" class="grey-text mr-1">Alter: </a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserSternzeichen" class="grey-text mr-1">Sternzeichen: </a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserStudiengang" class="grey-text mr-1">Studiengang: </a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserEmail" class="grey-text mr-1">Email: </a>
+                            </li>
+                          </ul>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consectetur accusamus velit nostrum et magnam.
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class"col-md-8 col-xl-9">
+                    <div id="#userComments">
+
+                          <!-- Card header -->
+                          <div id="commentsHeader" class="card-header border-0 font-weight-bold">4 comments</div>
+
+                          <div class="media d-block d-md-flex mt-4">
+                            <img class="commentAuthorPhoto card-img-64 d-flex mx-auto mb-3" src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg" alt="Generic placeholder image">
+                            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                              <h5 class="font-weight-bold mt-0">
+                                <a class="commentAuthor" href="">Miley Steward</a>
+                                <P class="commentDate">
+                                    16/10/2018
+                                </P>
+                                <P class="commentTime">
+                                    21:40:10
+                                </P>
+                              </h5>
+                              <p class="commentText">
+                                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="media d-block d-md-flex mt-3">
+                            <img class="commentAuthorPhoto card-img-64 d-flex mx-auto mb-3" src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="Generic placeholder image">
+                            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                              <h5 class="font-weight-bold mt-0">
+                                <a class="commentAuthor" href="">Caroline Horwitz</a>
+                                <P class="commentDate">
+                                    17/10/2018
+                                </P>
+                                <P class="commentTime">
+                                    20:40:40
+                                </P>
+                              </h5>
+                              <p class="commentText">
+                              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+                              quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                              </p>
+                            </div>
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

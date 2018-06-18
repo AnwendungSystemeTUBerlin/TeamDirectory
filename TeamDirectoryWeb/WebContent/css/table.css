@@ -1,0 +1,60 @@
+table {
+  border-radius: 10px;
+}
+
+th {
+    border: 0px !important;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+tr {
+    text-align: center;
+}
+
+td{
+    font-size: 1em !important;
+}
+
+.copySymbol{
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+}
+
+/* Tooltip text */
+.tooltip {
+    visibility: hidden;
+    width: 50px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 1;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 9999;
+    bottom: 90%;
+    left: 50%;
+    margin-left: -25px;
+}
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    opacity: 1;
+    border-color: grey transparent transparent transparent;
+}
+.copySymbol:hover .tooltip {
+    visibility: visible;
+}
+.copySymbol:hover i{
+    transform: scale(1.5);
+    transition: transform 0.25s ease-out;
+}

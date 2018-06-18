@@ -1,0 +1,121 @@
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    var lines = [];
+    var htmlString = "";
+
+    for (var i = 1; i < allTextLines.length - 1; i++) {
+        var data = allTextLines[i].split(',');
+        data = tableOrder(data);
+        if (data.length == headers.length) {
+            var tarr = [];
+            htmlString += "<tr>";
+            for (var j = 1; j < headers.length; j++) {
+                tarr.push(data[j]);
+                htmlString += "<td>" + data[j] + "</td>";
+            }
+            htmlString += "<td class=\"copySymbol\" onmouseout=\"outFunc()\"><span class=\"tooltip\">Copy</span><i class=\"fas fa-copy fa-lg\"></i></td>";
+            lines.push(tarr);
+            htmlString += "</tr>";
+        }
+    }
+
+    $("#theTable").append(htmlString);
+}
+
+function outFunc(){
+    $(".copySymbol span").text("Copy");
+}
+
+function tableOrder(data) {
+    data = swapElements(data, 2, 1);
+    data = swapElements(data, 3, 2);
+    data = swapElements(data, 4, 3);
+    data = swapElements(data, 5, 4);
+    data = swapElements(data, 6, 5);
+    return data;
+}
+
+function swapElements(arr, indexA, indexB) {
+    var temp = arr[indexA];
+    arr[indexA] = arr[indexB];
+    arr[indexB] = temp;
+    return arr;
+}
+
+function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("databaseTable");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /* Check if the two rows should switch place,
+            based on the direction, asc or desc: */
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // Each time a switch is done, increase this count by 1:
+            switchcount++;
+        } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+
+function searchTable() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("databaseTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
