@@ -3,10 +3,9 @@ $( document ).ready(function() {
 });
 
 function listUsers() {
-    console.log("fetching users.");
-    var pathname = window.location.pathname;
-    //console.log("http://localhost:8080"+pathname+"api/user");
-    $.getJSON("http://localhost:8080"+pathname+"api/user", null, onUserResult);
+    ApiService.Comment.getComment().byPosterId(123).done(data => {
+        console.log(data);
+    });
 }
 
 function onUserResult(userData) {

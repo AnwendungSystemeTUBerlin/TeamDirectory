@@ -14,17 +14,49 @@ HOST: http://teamdirectory.apiblueprint.org/
         
             {
                 "id": 123,
-                "name": "John Doe",
+                "name": "John",
+                "surname": "Doe",
                 "age": 20,
-                "astrologicalSign": "Virgo",
-                "course": "Wirtschaftsinformatik"
+                "university": "TU Berlin",
+                "studyCourse": "Wirtschaftsinformatik"
             }
+
+### Get User by name [GET /api/users?name={name}]
++ Parameters
+    + name(string, required) - Name of a User
+    
++ Response 200 (application/json)
+
+        
+            {
+                "id": 123,
+                "name": "John",
+                "surname": "Doe",
+                "age": 20,
+                "university": "TU Berlin",
+                "studyCourse": "Wirtschaftsinformatik"
+            }
+            
+### Get User by name (Anonymous) [GET /api/users?name={name}&anonymous=true]
++ Parameters
+    + name(string, required) - Name of a User
+    
++ Response 200 (application/json)
+
+        
+        {
+            "id": "5432432",
+            "name": "Jane",
+            "surname": "Doe",
+            "age": null,
+            "university": null,
+            "studyCourse": null
+        }
     
 
 ## Comments Collection [/api/comments/]
 
 ### Create a New Comment [POST]
-
 + Request (application/json)
 
         {
@@ -37,10 +69,47 @@ HOST: http://teamdirectory.apiblueprint.org/
 
     + Body
     
-            {
+            {   
+                "id": 1,
                 "posterId": 123,
                 "receiverId": 321,
                 "author": "John Doe",
-                "published_at": "2018-06-15:03:54.620Z",
-                "body": "Lorem ipsum dolor sit amet"
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
+            }
+
+
+### Get a comment by receiverId [GET /api/comments?receiverId={receiverId}]
++ Parameters
+    + receiverId(number, required) - Id of the receiver
+
++ Response 200 (application/json)
+        
+            
+            {   
+                "id": 1,
+                "posterId": 123,
+                "receiverId": 321,
+                "author": "John Doe",
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
+            }
+
+### Get a comment by posterId [GET /api/comments?posterId={posterId}]
++ Parameters
+    + posterId(number, required) - Id of the poster
+
++ Response 200 (application/json)
+        
+            
+            {   
+                "id": 1,
+                "posterId": 123,
+                "receiverId": 321,
+                "author": "John Doe",
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
             }
