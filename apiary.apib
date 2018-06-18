@@ -24,7 +24,6 @@ HOST: http://teamdirectory.apiblueprint.org/
 ## Comments Collection [/api/comments/]
 
 ### Create a New Comment [POST]
-
 + Request (application/json)
 
         {
@@ -37,10 +36,47 @@ HOST: http://teamdirectory.apiblueprint.org/
 
     + Body
     
-            {
+            {   
+                "id": 1,
                 "posterId": 123,
                 "receiverId": 321,
                 "author": "John Doe",
-                "published_at": "2018-06-15:03:54.620Z",
-                "body": "Lorem ipsum dolor sit amet"
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
+            }
+
+
+### Get a comment by receiverId [GET /api/comments?receiverId={receiverId}]
+    + Request
+        + receiverId(number, requeired) - Id of the receiver
+
++ Response 200 (application/json)
+        
+            
+            {   
+                "id": 1,
+                "posterId": 123,
+                "receiverId": 321,
+                "author": "John Doe",
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
+            }
+
+### Get a comment by posterId [GET /api/comments?receiverId={posterId}]
+    + Request
+        + receiverId(number, requeired) - Id of the receiver
+
++ Response 200 (application/json)
+        
+            
+            {   
+                "id": 1,
+                "posterId": 123,
+                "receiverId": 321,
+                "author": "John Doe",
+                "date": "15.06.2018",
+                "time": "03:54",
+                "content": "Lorem ipsum dolor sit amet"
             }
