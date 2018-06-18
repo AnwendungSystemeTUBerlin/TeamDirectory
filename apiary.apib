@@ -48,8 +48,8 @@ HOST: http://teamdirectory.apiblueprint.org/
 
 
 ### Get a comment by receiverId [GET /api/comments?receiverId={receiverId}]
-    + Request
-        + receiverId(number, requeired) - Id of the receiver
++ Parameters
+    + receiverId(number, required) - Id of the receiver
 
 + Response 200 (application/json)
         
@@ -64,9 +64,9 @@ HOST: http://teamdirectory.apiblueprint.org/
                 "content": "Lorem ipsum dolor sit amet"
             }
 
-### Get a comment by posterId [GET /api/comments?receiverId={posterId}]
-    + Request
-        + receiverId(number, requeired) - Id of the receiver
+### Get a comment by posterId [GET /api/comments?posterId={posterId}]
++ Parameters
+    + posterId(number, required) - Id of the poster
 
 + Response 200 (application/json)
         
