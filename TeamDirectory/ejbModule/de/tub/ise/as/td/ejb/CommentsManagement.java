@@ -21,9 +21,9 @@ public class CommentsManagement {
 	EntityManager em;
 	
 	/**
-	 * Gibt alle in der Datenbank vorhandenen Comments zurück.
+	 * Returns all Comments which are currently saved in the database.
 	 * 
-	 * @return Liste von Comments.
+	 * @return List of Comments.
 	 */
 	public List<Comment> getComments() {
 		TypedQuery<Comment> query = em.createQuery("SELECT u FROM Comment u", Comment.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
@@ -32,11 +32,11 @@ public class CommentsManagement {
 	
 	
 	/**
-	 * Gibt eine Liste von Comments aus der Datenbank zurück. Allerdings nur diejenigen,
-	 * welche von dem User mit der übergebenen posterID verfasst wurden.
+	 * Returns a list of Comments from the database which where posted by the User
+	 * with the given attribute posterID.
 	 * 
 	 * @param posterID
-	 * @return Liste von Comments.
+	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentByPosterID(int posterID) {
 		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
@@ -50,11 +50,11 @@ public class CommentsManagement {
 	}
 	
 	/**
-	 * Gibt eine Liste von Comments aus der Datenbank zurück. Allerdings nur diejenigen,
-	 * welche an den User mit der übergebenen receiverID gerichtet wurden.
+	 * Returns a list of Comments from the database which where posted to the 
+	 * User with the given attribute receiverID.
 	 * 
 	 * @param posterID
-	 * @return Liste von Comments.
+	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentByReceiverID(int receiverID) {
 		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();

@@ -11,12 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Entität zur Beschreibung eines Kommentares.
- *
- */
-@Entity //für JPA wichtig
-@Table(name = "COMMENTSTABLE") //optionale Notation
+@Entity
+@Table(name = "COMMENTSTABLE")
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 384032570455381853L;
 	@Id
@@ -38,12 +34,11 @@ public class Comment implements Serializable {
 	}
 	
 	/**
-	 * Beim erstellen eines neuen Kommentares wird dies Funktion aus dem Konstruktor aufgerufen.
-	 * Die Systemzeit wird erfasst, durch die Klasse SimpleDateFormat formatiert und in einem 
-	 * String gespeichert.
+	 * When a new Comment gets created, this method is called from the constructor.
+	 * The system time and date are formated and saved into the strings time and date.
 	 * 
-	 * Format Datum: dd.MM.yyyy
-	 * Format Zeit: HH:mm
+	 * date format: dd.MM.yyyy
+	 * time format: HH:mm
 	 */
 	public void initDateAndTime() {
 		Calendar calender = GregorianCalendar.getInstance();

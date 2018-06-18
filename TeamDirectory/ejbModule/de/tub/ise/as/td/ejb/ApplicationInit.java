@@ -10,12 +10,12 @@ import de.tub.ise.as.td.entity.Comment;
 import de.tub.ise.as.td.entity.User;
 
 @Singleton
-@Startup //Wird beim Start des Anwendungsservers ausgeführt
+@Startup
 public class ApplicationInit {
 	@PersistenceContext
 	EntityManager em;
 
-	@PostConstruct //Wenn die Klasse erzeugt wird (siehe Annotation Singletont) wird diese Methode aufgerufen
+	@PostConstruct
 	public void ensureUsersExist() {
 		//Sebastian Führ
 		User sebastian = new User("Führ", "Sebastian");
@@ -46,7 +46,7 @@ public class ApplicationInit {
 		em.persist(victor);
 		
 		
-		//Beispielkommentare
+		//comments
 		Comment newComment = new Comment(stefan.getId(), sebastian.getId(), "Das Wetter ist schön.");
 		newComment.setDate("13.06.2018");
 		newComment.setTime("10:15");
