@@ -21,7 +21,7 @@ HOST: http://teamdirectory.apiblueprint.org/
                 "studyCourse": "Wirtschaftsinformatik"
             }
 
-### Get User by id [GET /api/users?name={name}]
+### Get User by name [GET /api/users?name={name}]
 + Parameters
     + name(string, required) - Name of a User
     
@@ -36,6 +36,22 @@ HOST: http://teamdirectory.apiblueprint.org/
                 "university": "TU Berlin",
                 "studyCourse": "Wirtschaftsinformatik"
             }
+            
+### Get User by name (Anonymous) [GET /api/users?name={name}&anonymous=true]
++ Parameters
+    + name(string, required) - Name of a User
+    
++ Response 200 (application/json)
+
+        
+        {
+            "id": "5432432",
+            "name": "Jane",
+            "surname": "Doe",
+            "age": null,
+            "university": null,
+            "studyCourse": null
+        }
     
 
 ## Comments Collection [/api/comments/]
