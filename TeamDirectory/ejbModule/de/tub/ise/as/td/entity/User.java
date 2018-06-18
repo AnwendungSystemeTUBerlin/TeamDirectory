@@ -33,6 +33,12 @@ public class User implements Serializable {
 		this.surname = surname;
 	}
 	
+	public User(String name, String surname, int userId) {
+		this.name = name;
+		this.surname = surname;
+		this.id = userId;
+	}
+	
 	public int getId() {
 		return id;
 	}
