@@ -14,11 +14,44 @@ HOST: http://teamdirectory.apiblueprint.org/
         
             {
                 "id": 123,
-                "name": "John Doe",
+                "name": "John",
+                "surname": "Doe",
                 "age": 20,
-                "astrologicalSign": "Virgo",
-                "course": "Wirtschaftsinformatik"
+                "university": "TU Berlin",
+                "studyCourse": "Wirtschaftsinformatik"
             }
+
+### Get User by name [GET /api/users?name={name}]
++ Parameters
+    + name(string, required) - Name of a User
+    
++ Response 200 (application/json)
+
+        
+            {
+                "id": 123,
+                "name": "John",
+                "surname": "Doe",
+                "age": 20,
+                "university": "TU Berlin",
+                "studyCourse": "Wirtschaftsinformatik"
+            }
+            
+### Get User by name (Anonymous) [GET /api/users?name={name}&anonymous=true]
++ Parameters
+    + name(string, required) - Name of a User
+    
++ Response 200 (application/json)
+
+        
+        {
+            "id": "5432432",
+            "name": "Jane",
+            "surname": "Doe",
+            "age": null,
+            "university": null,
+            "studyCourse": null
+        }
     
 
 ## Comments Collection [/api/comments/]
