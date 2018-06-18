@@ -1,4 +1,5 @@
 function processData(allText) {
+    allText = jsonToCSV(allText);
     var allTextLines = allText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(',');
     var lines = [];

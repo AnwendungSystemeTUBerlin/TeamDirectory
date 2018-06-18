@@ -6,7 +6,7 @@ function setupAlumniCsv(){
     console.log("wjat");
     $.ajax({
         type: "GET",
-        url: "/alumniCsv",
+        url: "/usersJSON",
         dataType: "text",
         success: function(data) {
             processData(data);
