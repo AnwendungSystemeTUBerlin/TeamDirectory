@@ -2,12 +2,24 @@ function sendForm(route, form){
     $.post(route, $(form).serialize());
 }
 
-function setupAlumniCsv(){
-    console.log("wjat");
+function getUsers(){
+    console.log("what");
     $.ajax({
         type: "GET",
         url: "/usersJSON",
-        dataType: "text",
+        dataType: "application/json",
+        success: function(data) {
+            processData(data);
+        }
+    });
+}
+
+function getComments(){
+    console.log("what");
+    $.ajax({
+        type: "GET",
+        url: "/usersJSON",
+        dataType: "application/json",
         success: function(data) {
             processData(data);
         }

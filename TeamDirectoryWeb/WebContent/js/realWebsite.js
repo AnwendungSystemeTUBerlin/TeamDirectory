@@ -6,17 +6,11 @@ $(document).ready(function() {
         offset: 300
     });
 
-    setupAlumniCsv();
+    getUsers();
     setupFormIds();
     setupCopySymbol();
 
     linkSmoothScrolling();
     navbarAnimation();
 
-    $("#sendContactButton").on('click', function(){
-        validateContactForm();
-    });
-    $("#sendAlumniButton").on('click', function(){
-        validateAddAlumniForm();
-    });
 });
