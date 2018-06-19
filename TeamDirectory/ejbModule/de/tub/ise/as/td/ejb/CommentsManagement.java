@@ -26,7 +26,7 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getComments() {
-		TypedQuery<Comment> query = em.createQuery("SELECT u FROM Comment u", Comment.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
+		TypedQuery<Comment> query = em.createQuery("SELECT u FROM Comment u", Comment.class);
 		return query.getResultList();
 	}
 	

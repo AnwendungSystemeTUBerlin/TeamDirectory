@@ -29,7 +29,7 @@ public class UserManagement {
 	 * @return List of User
 	 */
 	public List<User> getUsers() {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class); //Entitäten(Klassen)name und nicht der Tabellenname! Kein SQL statement.
+		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
 		return query.getResultList();
 	}
 	

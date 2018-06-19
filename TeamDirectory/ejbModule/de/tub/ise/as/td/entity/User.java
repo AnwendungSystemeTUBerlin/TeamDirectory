@@ -7,10 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Beispielentität
- *
- */
 @Entity
 @Table(name = "USERTABLE")
 public class User implements Serializable {

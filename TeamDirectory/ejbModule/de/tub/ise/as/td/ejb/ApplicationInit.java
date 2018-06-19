@@ -17,19 +17,19 @@ public class ApplicationInit {
 
 	@PostConstruct
 	public void ensureUsersExist() {
-		//Sebastian Führ
-		User sebastian = new User("Führ", "Sebastian");
-		sebastian.setUniversity("TU Berlin");
-		sebastian.setStudyCourse("Wirtschaftsinformatik");
-		sebastian.setAge(19);
-		em.persist(sebastian);
-		
 		//Stefan
 		User stefan = new User("Unbekannt", "Stefan");
 		stefan.setUniversity("TU Berlin");
 		stefan.setStudyCourse("Wirtschaftsinformatik");
 		stefan.setAge(0);
 		em.persist(stefan);
+				
+		//Sebastian Führ
+		User sebastian = new User("Führ", "Sebastian");
+		sebastian.setUniversity("TU Berlin");
+		sebastian.setStudyCourse("Wirtschaftsinformatik");
+		sebastian.setAge(19);
+		em.persist(sebastian);
 		
 		//Nikolay Nikolov
 		User nikolay = new User("Nikolov", "Nikolay");
