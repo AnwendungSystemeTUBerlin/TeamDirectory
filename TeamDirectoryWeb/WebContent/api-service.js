@@ -1,6 +1,6 @@
 const ApiService = (() => {
     const api = 'https://private-d2efc-teamdirectory.apiary-mock.com/api'
-    
+
     function $request (type, url, data) {
         return $.ajax({
             type,
@@ -20,7 +20,7 @@ const ApiService = (() => {
             getById(id) {
                 let url = `${api}/users/${id}`;
 
-                return $request('GET', url, null);   
+                return $request('GET', url, null);
             }
         },
         Comment: {

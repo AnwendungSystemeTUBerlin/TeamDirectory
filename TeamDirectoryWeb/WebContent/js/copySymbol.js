@@ -1,15 +1,15 @@
 function setupCopySymbol(){
     $(document).on('click', ".copySymbol", function(){
         try {
-            // find the email
-           var email = $(this).closest('td').prev('td')[0];
-
+            // find the first name
+           let firstName = $(this).parent().children().first();
+           
             // get the selection of the document
-           var selection = window.getSelection();
-           var range = document.createRange();
+           let selection = window.getSelection();
+           let range = document.createRange();
 
-           // select the email
-           range.selectNodeContents(email);
+           // select the first name
+           range.selectNodeContents(firstName);
            selection.removeAllRanges();
            selection.addRange(range);
 

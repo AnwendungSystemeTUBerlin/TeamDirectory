@@ -1,24 +1,25 @@
-function processData(allText) {
-    allText = jsonToCSV(allText);
-    var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split(',');
-    var lines = [];
-    var htmlString = "";
+function processData(json) {
 
-    for (var i = 1; i < allTextLines.length - 1; i++) {
-        var data = allTextLines[i].split(',');
-        data = tableOrder(data);
-        if (data.length == headers.length) {
-            var tarr = [];
-            htmlString += "<tr>";
-            for (var j = 1; j < headers.length; j++) {
-                tarr.push(data[j]);
-                htmlString += "<td>" + data[j] + "</td>";
-            }
-            htmlString += "<td class=\"copySymbol\" onmouseout=\"outFunc()\"><span class=\"tooltip\">Copy</span><i class=\"fas fa-copy fa-lg\"></i></td>";
-            lines.push(tarr);
-            htmlString += "</tr>";
-        }
+    let allUsers = [];
+
+    $.each(json, function(i, item) {
+        allUsers.push(item);
+    });
+
+    let htmlString = "";
+
+    for (let counter = 0; counter < allUsers.length; counter++) {
+        let user = allUsers[counter];
+
+        htmlString += "<tr>";
+
+        ['name', 'surname', 'age', 'studyCourse', 'university', 'id'].forEach(function(key){
+            htmlString +=  "<td>" + user[key] + "</td>";
+        });
+
+        htmlString += "<td class=\"copySymbol\" onmouseout=\"outFunc()\"><span class=\"tooltip\">Copy</span><i class=\"fas fa-copy fa-lg\"></i></td>";
+
+        htmlString += "</tr>";
     }
 
     $("#theTable").append(htmlString);
@@ -28,24 +29,8 @@ function outFunc(){
     $(".copySymbol span").text("Copy");
 }
 
-function tableOrder(data) {
-    data = swapElements(data, 2, 1);
-    data = swapElements(data, 3, 2);
-    data = swapElements(data, 4, 3);
-    data = swapElements(data, 5, 4);
-    data = swapElements(data, 6, 5);
-    return data;
-}
-
-function swapElements(arr, indexA, indexB) {
-    var temp = arr[indexA];
-    arr[indexA] = arr[indexB];
-    arr[indexB] = temp;
-    return arr;
-}
-
 function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("databaseTable");
     switching = true;
     // Set the sorting direction to ascending:
@@ -100,7 +85,7 @@ function sortTable(n) {
 }
 
 function searchTable() {
-    var input, filter, found, table, tr, td, i, j;
+    let input, filter, found, table, tr, td, i, j;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("databaseTable");

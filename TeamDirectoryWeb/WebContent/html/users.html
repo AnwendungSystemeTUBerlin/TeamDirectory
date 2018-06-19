@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="../css/headers.css">
 	<link rel="stylesheet" href="../css/navigation.css">
     <link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="../css/usersSection.css">
+	<link rel="stylesheet" href="../css/currentUserSection.css">
 	<link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -30,7 +32,10 @@
     <script src="../js/usersTable.js"></script>
     <script src="../js/copySymbol.js"></script>
     <script src="../js/requests.js"></script>
-    <script src="../js/realWebsite.js"></script>
+	<script src="../js/user.js"></script>
+	<script src="../js/commentTemplate.js"></script>
+	<script src="../js/comment.js"></script>
+    <script src="../js/usersSite.js"></script>
 
     <!-- Navigation bar -->
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
@@ -58,7 +63,7 @@
         </div>
     </nav>
 
-    <section id="searchUsers">
+    <section id="usersSection">
         <div class="container">
             <div class="row">
                 <div class="col-4 p-0">
@@ -71,12 +76,12 @@
                     <table class="table table-hover table-dark" id="databaseTable">
                         <thead>
                             <tr>
-                                <th scope="col" onclick="sortTable(0)">User-ID</th>
-                                <th scope="col" onclick="sortTable(1)">Name</th>
-                                <th scope="col" onclick="sortTable(2)">Alter</th>
-                                <th scope="col" onclick="sortTable(3)">Sternzeichen</th>
-                                <th scope="col" onclick="sortTable(4)">Studiengang</th>
-                                <th scope="col" onclick="sortTable(5)">Email</th>
+                                <th scope="col" onclick="sortTable(0)">First Name</th>
+                                <th scope="col" onclick="sortTable(1)">Surname</th>
+                                <th scope="col" onclick="sortTable(2)">Age</th>
+                                <th scope="col" onclick="sortTable(3)">Study Course</th>
+                                <th scope="col" onclick="sortTable(4)">University</th>
+                                <th scope="col" onclick="sortTable(5)">Id</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -88,7 +93,7 @@
         </div>
     </section>
 
-    <section id="currentUser">
+    <section id="currentUserSection">
         <div class="container">
 
             <div class="row">
@@ -149,16 +154,13 @@
                               <a id="currentUserId" class="grey-text mr-1">User-ID: </i></a>
                             </li>
                             <li class="">
-                              <a id="currentUserAlter" class="grey-text mr-1">Alter: </a>
+                              <a id="currentUserAge" class="grey-text mr-1">Age: </a>
                             </li>
                             <li class="">
-                              <a id="currentUserSternzeichen" class="grey-text mr-1">Sternzeichen: </a>
+                              <a id="currentUserStudyCourse" class="grey-text mr-1">Study Course: </a>
                             </li>
                             <li class="">
-                              <a id="currentUserStudiengang" class="grey-text mr-1">Studiengang: </a>
-                            </li>
-                            <li class="">
-                              <a id="currentUserEmail" class="grey-text mr-1">Email: </a>
+                              <a id="currentUserUniversity" class="grey-text mr-1">University: </a>
                             </li>
                           </ul>
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consectetur accusamus velit nostrum et magnam.
