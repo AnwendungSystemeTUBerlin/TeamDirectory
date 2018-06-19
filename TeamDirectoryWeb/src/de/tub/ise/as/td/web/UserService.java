@@ -8,6 +8,7 @@ import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import de.tub.ise.as.td.ejb.UserManagement;
 import de.tub.ise.as.td.entity.User;
@@ -22,15 +23,22 @@ public class UserService {
     }
 
     /**
-     * Retrieves representation of an instance of User
+     * Retrieves representation of an user with the specific name and surname. If
+     * there is no such user, all user get returned.
+     * 
      * @return an JSON as a string.
      */
     @GET
     @Produces("application/json")
-    public String getUserAsJson() {
-        List<User> users = userMgmt.getUsers();
-        Jsonb jsonb = JsonbBuilder.create();
-        return jsonb.toJson(users);
+    public String getUserAsJson(@QueryParam("name") String name,
+    							@QueryParam("surname") String surname) {
+    	Jsonb jsonb = JsonbBuilder.create();
+    	if (name != null || surname != null) {
+    		return jsonb.toJson(userMgmt.getUser(name, surname));
+    	} else {
+	        List<User> users = userMgmt.getUsers();
+	        return jsonb.toJson(users);
+    	}
     }
 
 }

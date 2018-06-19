@@ -38,7 +38,7 @@ public class CommentsManagement {
 	 * @param posterID
 	 * @return List of Comments.
 	 */
-	public List<Comment> getCommentByPosterID(int posterID) {
+	public List<Comment> getCommentsByPosterID(int posterID) {
 		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
 		List<Comment> commentsList = new ArrayList<Comment>();
 		for (int i=0; i<comments.size(); i++) {
@@ -56,7 +56,7 @@ public class CommentsManagement {
 	 * @param posterID
 	 * @return List of Comments.
 	 */
-	public List<Comment> getCommentByReceiverID(int receiverID) {
+	public List<Comment> getCommentsByReceiverID(int receiverID) {
 		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
 		List<Comment> commentsList = new ArrayList<Comment>();
 		for (int i=0; i<comments.size(); i++) {
