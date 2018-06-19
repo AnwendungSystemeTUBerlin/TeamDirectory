@@ -44,9 +44,10 @@ HOST: http://teamdirectory.apiblueprint.org/
                 "studyCourse": "Wirtschaftsinformatik"
             }
 
-### Get User by name [GET /api/users?name={name}]
+### Get User by name [GET /api/users?name={name}&surname={surname}]
 + Parameters
-    + name(string, required) - Name of a User
+    + name(string, optional) - Name of a User
+    + surname(string, optional) - Surname of a User
     
 + Response 200 (application/json)
 
@@ -60,10 +61,8 @@ HOST: http://teamdirectory.apiblueprint.org/
                 "studyCourse": "Wirtschaftsinformatik"
             }
             
-### Get User by name (Anonymous) [GET /api/users?name={name}&anonymous=true]
-+ Parameters
-    + name(string, required) - Name of a User
-    
+### Get User by name (Anonymous) [GET /api/users?anonymous=true]
+
 + Response 200 (application/json)
 
         
