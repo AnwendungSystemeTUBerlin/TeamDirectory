@@ -5,6 +5,29 @@ HOST: http://teamdirectory.apiblueprint.org/
 
 ## Users Collection [/api/users]
 
+### Get Users [GET]
++ Response 200 (application/json)
+    
+        
+            [
+                {
+                    "id": 123,
+                    "name": "John",
+                    "surname": "Doe",
+                    "age": 20,
+                    "university": "TU Berlin",
+                    "studyCourse": "Wirtschaftsinformatik"
+                },
+                {
+                    "id": 321,
+                    "name": "Ivan",
+                    "surname": "Doe",
+                    "age": 19,
+                    "university": "TU Berlin",
+                    "studyCourse": "Chemie"
+                }
+            ]
+
 ### Get User by id [GET /api/users/{id}]
 + Parameters
     + id(number, required) - Id of a User

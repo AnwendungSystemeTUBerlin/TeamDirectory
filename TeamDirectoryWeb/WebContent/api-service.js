@@ -12,6 +12,11 @@ const ApiService = (() => {
 
     return {
         User: {
+            getUsers() {
+                let url = `${api}/users`;
+
+                return $request('GET', url, null);
+            },
             getById(id) {
                 let url = `${api}/users/${id}`;
 
