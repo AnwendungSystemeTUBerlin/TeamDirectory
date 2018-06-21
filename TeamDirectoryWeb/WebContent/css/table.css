@@ -10,13 +10,20 @@ th {
 
 tr {
     text-align: center;
+    cursor: pointer;
 }
 
 td{
     font-size: 1em !important;
 }
 
+#emptySearch{
+    display: none;
+    margin: auto;
+}
+
 .copySymbol{
+    color: rgba(0, 123, 255, 0.95);
     position: relative;
     cursor: pointer;
     margin: auto;

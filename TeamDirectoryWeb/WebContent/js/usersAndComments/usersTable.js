@@ -85,6 +85,10 @@ function sortTable(n) {
 }
 
 function searchTable() {
+    let emtpySearch = true;
+
+    $("#emptySearch").css("display", "none");
+
     let input, filter, found, table, tr, td, i, j;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
@@ -95,6 +99,7 @@ function searchTable() {
         for (j = 0; j < td.length; j++) {
             if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
                 found = true;
+                emtpySearch = false;
             }
         }
         if (found) {
@@ -103,5 +108,10 @@ function searchTable() {
         } else {
             tr[i].style.display = "none";
         }
+    }
+
+    if (emtpySearch) {
+        $("#emptySearch").css("display", "block");
+        console.log("Nothing found!");
     }
 }

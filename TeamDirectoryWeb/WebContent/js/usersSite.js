@@ -12,38 +12,20 @@ $(document).ready(function() {
 
     let navbarHeight = $("#navbar").css("height").split("px")[0];
 
-    $("#usersSection").css("margin-top", (navbarHeight * 1.1) + "px");
-    // setupFormIds();
+    $("#usersSection").css("margin-top", (navbarHeight * 1.5) + "px");
+    $("#navbar").css("background-color", "rgba(0,123,255, 0.95)");
+
     setupCopySymbol();
 
     linkSmoothScrolling();
     navbarAnimation();
 
     $('body').on('click', 'table tr', function() {
-        setupUser($(this).children());
-        setupComments($(this).children()[5].innerHTML);
-        $("#currentUserSection").css("display", "block");
+        let id = $(this).children()[5].innerHTML;
+        setupProfile(id);
+
+        $('html,body').animate({
+            scrollTop: $("#currentUserSection").offset().top},'slow');
     });
 
 });
-
-function setupComments(id){
-    ApiService.Comment.getComment().byReceiverId(id).done(function(data){
-        $.each(data, function(i, item){
-            addComment(item);
-        });
-    });
-}
-
-function addComment(comment){
-
-    let commentName = comment.author;
-    let commentDate = comment.date;
-    let commentTime = comment.time;
-    let commentContent = comment.content;
-
-    $('#userComments').append(
-        new Comment({ name: commentName, date: commentDate, time: commentTime, text: commentContent })
-        .join('')
-    );
-}

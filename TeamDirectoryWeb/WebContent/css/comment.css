@@ -1,0 +1,17 @@
+.commentAuthorPhoto{
+    height: 7rem;
+    cursor: pointer;
+}
+
+.commentTime, .commentDate{
+    color: grey;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.commentAuthor{
+    margin-bottom: 0.1rem;
+    color: #4285F4;
+    cursor: pointer;
+}

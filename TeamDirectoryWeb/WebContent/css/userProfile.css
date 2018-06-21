@@ -1,0 +1,41 @@
+#currentUserSection{
+    display: none;
+}
+
+#currentUserProfile{
+    margin-bottom: 2rem;
+}
+
+#currentUserPhoto{
+    height: 15rem;
+}
+
+#currentUserName{
+    color: rgba(0, 123, 255, 0.95) !important;
+    font-size: 2em;
+    margin-bottom: 0.2rem;
+}
+
+.fa-facebook-square{
+    color: #3b5998;
+}
+
+.fa-twitter{
+    color: #1da1f2;
+}
+
+.fa-google-plus{
+    color: #d34836;
+}
+
+.fa-linkedin{
+    color: #007bb5;
+}
+
+.fa-instagram{
+    color: #c32aa3;
+}
+
+#currentUserSection .section-heading{
+    text-align: initial;
+}
