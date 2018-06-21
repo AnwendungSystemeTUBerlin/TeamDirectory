@@ -2,6 +2,10 @@
     display: none;
 }
 
+#currentUserId{
+    display: none;
+}
+
 #currentUserProfile{
     margin-bottom: 2rem;
 }

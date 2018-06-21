@@ -15,3 +15,7 @@
     color: #4285F4;
     cursor: pointer;
 }
+
+#commentsHeader, #userComments, #writeComment{
+    width: 100%;
+}

@@ -28,4 +28,12 @@ $(document).ready(function() {
             scrollTop: $("#currentUserSection").offset().top},'slow');
     });
 
+    $("#writeCommentButton").on('click', function(){
+        console.log("clicked");
+        if(commentValidation()){
+            console.log("valid");
+            saveComment();
+        }
+    });
+
 });

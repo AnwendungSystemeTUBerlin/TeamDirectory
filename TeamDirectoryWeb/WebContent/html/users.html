@@ -142,6 +142,9 @@
                           </ul>
 
                           <ul class="list-unstyled mb-2 pt-1">
+							<li class="">
+								<a id="currentUserId" class="grey-text mr-1">Id: </a>
+							</li>
                             <li class="">
                               <a id="currentUserAge" class="grey-text mr-1">Age: </a>
                             </li>
@@ -161,13 +164,24 @@
             </div>
 
             <div class="row">
-                <div class"col-md-8 col-xl-9">
+                <div class"col-8 col-md-8" style="width: 100%;">
 					<!-- Card header -->
 					<div id="commentsHeader" class="card-header border-0 font-weight-bold">comments</div>
 
                     <div id="userComments">
 
                     </div>
+
+					<div id="writeComment">
+				      <div class="form-group mt-4">
+				        <label for="quickReplyFormComment">Your comment</label>
+				        <textarea class="form-control" id="writeCommentText" rows="5"></textarea>
+
+				        <div class="text-center my-4">
+				          <button id="writeCommentButton" class="btn btn-primary btn-sm">Comment</button>
+				        </div>
+				      </div>
+					</div>
                 </div>
             </div>
         </div>
