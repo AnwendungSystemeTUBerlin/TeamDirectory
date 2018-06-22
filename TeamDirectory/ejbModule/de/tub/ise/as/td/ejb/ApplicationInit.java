@@ -29,6 +29,7 @@ public class ApplicationInit {
 		sebastian.setUniversity("TU Berlin");
 		sebastian.setStudyCourse("Wirtschaftsinformatik");
 		sebastian.setAge(19);
+		sebastian.setImgPath("img_sebastian.png");
 		em.persist(sebastian);
 		
 		//Nikolay Nikolov

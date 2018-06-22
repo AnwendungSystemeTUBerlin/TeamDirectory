@@ -1,6 +1,7 @@
 const AuthService = (() => {
     return {
         login(name, surname) {
+        	//window.alert("auth-service: "+name +"," + surname);
             return ApiService.User.getUser().byName(name, surname);
         },
         getCurrentUser() {

@@ -1,10 +1,13 @@
 const ApiService = (() => {
-    const api = 'https://private-d2efc-teamdirectory.apiary-mock.com/api'
+    const api = 'http://localhost:8080/TeamDirectoryWeb/api'
     
     function $request (type, url, data) {
-        return $.ajax({
+        data = JSON.stringify(data);
+    	
+    	return $.ajax({
             type,
             dataType: 'json',
+            contentType: 'application/json',
             url,
             data
         });
@@ -13,20 +16,20 @@ const ApiService = (() => {
     return {
         User: {
             getUsers() {
-                let url = `${api}/users`;
+                let url = `${api}/user`;
 
                 return $request('GET', url, null);
             },
             getUser() {
                 return {
                     byId(id) {
-                        let url = `${api}/users/${id}`;
+                        let url = `${api}/user/${id}`;
 
                         return $request('GET', url, null);   
                     },
                     byName(name, surname) {
-                        let url = `${api}/users?name=${name}&surname=${surname}`;
-
+                        let url = `${api}/user?name=${name}&surname=${surname}`;
+                        window.alert("api-service: "+JSON.stringify($request('GET', url, null)));
                         return $request('GET', url, null);
                     }
                 }
@@ -34,8 +37,7 @@ const ApiService = (() => {
         },
         Comment: {
             postComment(comment) {
-                let url = `${api}/comments/`;
-
+                let url = `${api}/comments`;
                 return $request('POST', url, comment);
             },
             getComment() {

@@ -2,6 +2,6 @@
     let currentUser = AuthService.getCurrentUser();
 
     if (!currentUser) {
-        window.location.href = '/html/login.html';
+        window.location.href = 'http://localhost:8080/TeamDirectoryWeb/login.html';
     }
 }());

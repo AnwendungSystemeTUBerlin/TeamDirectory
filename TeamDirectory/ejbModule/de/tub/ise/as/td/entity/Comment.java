@@ -30,6 +30,8 @@ public class Comment implements Serializable {
 	
 	public Comment(int receiverID, int posterID, String content) {
 		this.receiverID = receiverID;
+		this.posterID = posterID;
+		this.content = content;
 		initDateAndTime();
 	}
 	

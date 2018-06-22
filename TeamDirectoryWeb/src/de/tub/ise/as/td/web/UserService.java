@@ -7,6 +7,7 @@ import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
@@ -39,6 +40,14 @@ public class UserService {
 	        List<User> users = userMgmt.getUsers();
 	        return jsonb.toJson(users);
     	}
+    }
+    
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public String getUserAsJson(@PathParam("id") int userID) {
+    	Jsonb jsonb = JsonbBuilder.create();
+    	return jsonb.toJson(userMgmt.getUser(userID));
     }
 
 }

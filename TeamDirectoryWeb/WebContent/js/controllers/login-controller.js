@@ -9,11 +9,13 @@
             }
 
             $(event.target).prop('disabled', true);
-
+            
+            
             AuthService.login(name, surname).done(user => {
                 AuthService.setCurrentUser(user);
-
-                window.location.href = '/';
+                
+                window.alert("login" + user);
+                window.location.href = '/TeamDirectoryWeb';
             });
         });
     })

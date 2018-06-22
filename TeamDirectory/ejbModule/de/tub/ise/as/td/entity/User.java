@@ -17,7 +17,8 @@ public class User implements Serializable {
 	String name,
 		   surname,
 		   university,
-		   studyCourse;
+		   studyCourse,
+		   imgPath;
 	int userAge;
 	
 	public User() {
@@ -78,6 +79,14 @@ public class User implements Serializable {
 
 	public void setStudyCourse(String studyCourse) {
 		this.studyCourse = studyCourse;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
 	}
 	
 }
