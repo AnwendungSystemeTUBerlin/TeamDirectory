@@ -2,7 +2,9 @@ const ApiService = (() => {
     const api = 'http://localhost:8080/TeamDirectoryWeb/api'
     
     function $request (type, url, data) {
-        data = JSON.stringify(data);
+    	if (!!data) {
+    		data = JSON.stringify(data);
+    	}
     	
     	return $.ajax({
             type,
@@ -40,17 +42,17 @@ const ApiService = (() => {
                 let url = `${api}/comments`;
                 return $request('POST', url, comment);
             },
-            getComment() {
+            getComments() {
                 let url = `${api}/comments`;
 
                 return {
                     byReceiverId(receiverId) {
-                        url += `?receiverId=${receiverId}`;
+                        url += `?receiverID=${receiverId}`;
 
                         return $request('GET', url, null);
                     },
                     byPosterId(posterId) {
-                        url += `?posterId=${posterId}`;
+                        url += `?posterID=${posterId}`;
 
                         return $request('GET', url, null);
                     }

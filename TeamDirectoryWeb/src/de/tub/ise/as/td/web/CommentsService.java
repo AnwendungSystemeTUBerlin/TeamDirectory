@@ -43,6 +43,7 @@ public class CommentsService {
     	if (posterID != 0) {
         	return jsonb.toJson(commentsMgmt.getCommentsByPosterID(posterID));
     	} else if (receiverID != 0) {
+    		System.out.println(jsonb.toJson(commentsMgmt.getCommentsByReceiverID(receiverID)));
     		return jsonb.toJson(commentsMgmt.getCommentsByReceiverID(receiverID));
     	} else {
     		return "";
@@ -52,12 +53,12 @@ public class CommentsService {
     @POST
     @Produces("application/json")
     public String postCommentsAsJson(String comment) {
-    	System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    	System.out.println(comment);
     	JsonReader jsonr = Json.createReader(new StringReader(comment));
     	JsonObject jsonObject = jsonr.readObject();
     	
     	Comment newComment = new Comment(jsonObject.getInt("receiverID"), jsonObject.getInt("posterID"), jsonObject.getString("content"));
+    	
+    	commentsMgmt.saveComment(newComment);
     	
     	Jsonb jsonb = JsonbBuilder.create();
     	return jsonb.toJson(newComment);

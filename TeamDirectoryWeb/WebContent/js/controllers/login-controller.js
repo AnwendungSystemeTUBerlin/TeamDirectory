@@ -1,22 +1,23 @@
 (function LoginController () {
     $(document).ready(() => {
-        $('#login-btn').click((event) => {
-            let name = $('#name').val(),
-                surname = $('#surname').val();
-            
-            if (!name || !surname) {
-                return;
-            }
-
-            $(event.target).prop('disabled', true);
-            
-            
-            AuthService.login(name, surname).done(user => {
-                AuthService.setCurrentUser(user);
+        (function initDOM () {
+            $('#login-btn').on('click', event => {
+                let name = $('#name').val(),
+                    surname = $('#surname').val();
                 
-                window.alert("login" + user);
-                window.location.href = '/TeamDirectoryWeb';
+                if (!name || !surname) {
+                    return;
+                }
+
+                $(event.target).prop('disabled', true);
+                
+                
+                AuthService.login(name, surname).done(user => {
+                    AuthService.setCurrentUser(user);
+                    
+                    window.location.href = '/TeamDirectoryWeb';
+                });
             });
-        });
+        })();
     })
 })();

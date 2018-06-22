@@ -30,6 +30,21 @@ public class CommentsManagement {
 		return query.getResultList();
 	}
 	
+	/**
+	 * Creates and persists a new comment in the database
+	 * 
+	 * @param comment
+	 */
+	public void saveComment(Comment comment) {
+		 em.getTransaction().begin();
+		 
+		 if (!em.contains(comment)) {
+	        em.persist(comment);
+	        em.flush();
+	    }
+	    
+	    em.getTransaction().commit();
+	}
 	
 	/**
 	 * Returns a list of Comments from the database which where posted by the User

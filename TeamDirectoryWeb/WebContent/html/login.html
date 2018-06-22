@@ -4,20 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>AnwSys Programmieraufgabe</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
     
-	<link rel="stylesheet" href="./css/frameworks/bootstrap.css">
-	<link rel="stylesheet" href="./css/frameworks/mdb.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-	  crossorigin="anonymous">
+    <!--External CSS-->
+	<link rel="stylesheet" href="./../css/frameworks/bootstrap.css">
+	<link rel="stylesheet" href="./../css/frameworks/mdb.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
 
-    <script type="text/javascript" src="./js/frameworks/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/frameworks/popper.min.js"></script>
-	<script type="text/javascript" src="./js/frameworks/bootstrap.min.js"></script>
+     <!-- External scripts -->
+    <script type="text/javascript" src="./../js/frameworks/jquery.min.js"></script>
+	<script type="text/javascript" src="./../js/frameworks/popper.min.js"></script>
+	<script type="text/javascript" src="./../js/frameworks/bootstrap.min.js"></script>
 
-    <script src="../js/services/api-service.js"></script>
-    <script src="../js/services/auth-service.js"></script>
-    <script src="../js/controllers/login-controller.js"></script>
+    <!-- Custom scripts -->
+    <!--Services-->
+    <script src="./../js/services/api-service.js"></script>
+    <script src="./../js/services/auth-service.js"></script>
+
+    <!--Controllers-->
+    <script src="./../js/controllers/login-controller.js"></script>
+    <script>
+        LoginController.init();
+    </script>
 </head>
 
 <body>
