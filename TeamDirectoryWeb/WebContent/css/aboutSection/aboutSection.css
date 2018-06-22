@@ -1,0 +1,9 @@
+#aboutSection .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#aboutSection button{
+    display: block;
+    margin: auto;
+}

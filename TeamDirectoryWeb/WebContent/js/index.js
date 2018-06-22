@@ -10,4 +10,9 @@ $(document).ready(function() {
     navbarAnimation();
     setupFaq();
 
+    $("#sendContactButton").on('click', function(){
+        console.log("here");
+        validateContactForm();
+    });
+
 });

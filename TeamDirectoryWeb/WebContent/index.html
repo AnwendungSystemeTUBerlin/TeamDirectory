@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 	<!-- Importing custom CSS -->
-	<link rel="stylesheet" href="./css/headers.css">
-	<link rel="stylesheet" href="./css/navigation.css">
-	<link rel="stylesheet" href="./css/home.css">
-	<link rel="stylesheet" href="./css/homeButton.css">
-	<link rel="stylesheet" href="./css/faq.css">
+	<link rel="stylesheet" href="./css/universal/headers.css">
+	<link rel="stylesheet" href="./css/universal/navigation.css">
+	<link rel="stylesheet" href="./css/universal/socialButtons.css">
+	<link rel="stylesheet" href="./css/homeSection/home.css">
+	<link rel="stylesheet" href="./css/homeSection/homeButton.css">
+	<link rel="stylesheet" href="./css/faq/faq.css">
+	<link rel="stylesheet" href="./css/contactSection/contact.css">
+	<link rel="stylesheet" href="./css/contactSection/formValidation.css">
+	<link rel="stylesheet" href="./css/aboutSection/aboutSection.css">
 	<link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -29,6 +33,7 @@
     <!-- Importing custom scripts -->
     <script src="./js/universal/linksSmoothScrolling.js"></script>
     <script src="./js/universal/navbarAnimation.js"></script>
+	<script src="./js/contactSection/formValidator.js"></script>
 	<script src="./js/faq/faq.js"></script>
     <script src="./js/index.js"></script>
 
@@ -87,6 +92,89 @@
 						Learn more about us!
 					</p>
 
+					<!-- Card deck -->
+					<div class="card-deck">
+
+					  <!-- Card -->
+					  <div class="card mb-4">
+
+					    <!--Card image-->
+					    <div class="view overlay">
+					      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+					      <a href="#!">
+					        <div class="mask rgba-white-slight"></div>
+					      </a>
+					    </div>
+
+					    <!--Card content-->
+					    <div class="card-body">
+
+					      <!--Title-->
+					      <h4 class="card-title">Nikolay Nikolov</h4>
+					      <!--Text-->
+					      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					      <button type="button" class="btn btn-primary btn-md">Read more</button>
+
+					    </div>
+
+					  </div>
+					  <!-- Card -->
+
+					  <!-- Card -->
+					  <div class="card mb-4">
+
+					    <!--Card image-->
+					    <div class="view overlay">
+					      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
+					      <a href="#!">
+					        <div class="mask rgba-white-slight"></div>
+					      </a>
+					    </div>
+
+					    <!--Card content-->
+					    <div class="card-body">
+
+					      <!--Title-->
+					      <h4 class="card-title">Stefan Yovchev</h4>
+					      <!--Text-->
+					      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					      <button type="button" class="btn btn-primary btn-md">Read more</button>
+
+					    </div>
+
+					  </div>
+					  <!-- Card -->
+
+					  <!-- Card -->
+					  <div class="card mb-4">
+
+					    <!--Card image-->
+					    <div class="view overlay">
+					      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
+					      <a href="#!">
+					        <div class="mask rgba-white-slight"></div>
+					      </a>
+					    </div>
+
+					    <!--Card content-->
+					    <div class="card-body">
+
+					      <!--Title-->
+					      <h4 class="card-title">Sebastian Führ</h4>
+					      <!--Text-->
+					      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					      <button type="button" class="btn btn-primary btn-md">Read more</button>
+
+					    </div>
+
+					  </div>
+					  <!-- Card -->
+
+					</div>
+					<!-- Card deck -->
 
 				</div>
 			</div>
@@ -228,6 +316,183 @@
 			</div>
 		</div>
 	</section>
+
+
+	<section id="contactSection" class="pb-5">
+		<div class="container">
+			<!--Section heading-->
+			<h2 class="section-heading h1 pt-4">Contact us!</h2>
+			<!--Section description-->
+			<p class="section-description">You have questions? Contact us and we will help you!</p>
+
+			<div class="row">
+
+				<!--Grid column-->
+				<div class="col-md-10 col-sm-12">
+					<form id="contactForm" name="contactForm" action="contact" method="POST">
+
+						<!--Grid row-->
+						<div class="row">
+
+							<!--Grid column-->
+							<div class="col-md-6">
+								<div class="md-form">
+									<input type="text" id="nameContact" name="nameContact" class="form-control">
+									<label for="nameContact" class="">Name</label>
+									<p class="invalidInput">
+										<i class="fas fa-times"></i>
+										Name cannot be empty!
+									</p>
+									<p class="validInput">
+										<i class="fas fa-check"></i>
+										Looks good!
+									</p>
+								</div>
+							</div>
+							<!--Grid column-->
+
+							<!--Grid column-->
+							<div class="col-md-6">
+								<div class="md-form">
+									<input type="text" id="emailContact" name="emailContact" class="form-control">
+									<label for="emailContact" class="">Email</label>
+									<p class="invalidInput">
+										<i class="fas fa-times"></i>
+										Email is invalid!
+									</p>
+									<p class="validInput">
+										<i class="fas fa-check"></i>
+										Looks good!
+									</p>
+								</div>
+							</div>
+							<!--Grid column-->
+
+						</div>
+						<!--Grid row-->
+
+						<!--Grid row-->
+						<div class="row">
+							<div class="col-md-12">
+								<div class="md-form">
+									<input type="text" id="subjectContact" name="subjectContact" class="form-control">
+									<label for="subjectContact" class="">Subject</label>
+									<p class="invalidInput">
+										<i class="fas fa-times"></i>
+										 Subject cannot be empty!
+									</p>
+									<p class="validInput">
+										<i class="fas fa-check"></i>
+										Looks good!
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--Grid row-->
+
+						<!--Grid row-->
+						<div class="row">
+
+							<!--Grid column-->
+							<div class="col-md-12">
+
+								<div class="md-form">
+									<textarea type="text" id="messageContact" name="messageContact" rows="2" class="form-control md-textarea"></textarea>
+									<label for="messageContact">Message</label>
+									<p class="invalidInput">
+										<i class="fas fa-times"></i>
+										Message cannot be empty!
+									</p>
+									<p class="validInput">
+										<i class="fas fa-check"></i>
+										Looks good!
+									</p>
+								</div>
+
+							</div>
+						</div>
+						<!--Grid row-->
+
+					</form>
+
+					<div id="contactSubmitDiv" class="center-on-small-only">
+						<a class="btn btn-primary" id="sendContactButton">Send</a>
+					</div>
+
+					<div id="emailSentDiv" class="invisibleElement">
+						<h3>Email has been successfully sent!</h3>
+						<h1>Thank you very much for contacting us! We will respond to your emails soon!</h1>
+					</div>
+				</div>
+				<!--Grid column-->
+
+				<!--Grid column-->
+				<div id="contactInfo" class="col-md-2 col-sm-12 mb-auto mt-auto text-center">
+					<ul class="list-unstyled">
+						<li><i class="fa fa-phone fa-2x"></i>
+							<p>+49999999999</p>
+						</li>
+
+						<li><i class="fa fa-envelope fa-2x"></i>
+							<p>jobs@start-berlin.com</p>
+						</li>
+					</ul>
+				</div>
+				<!--Grid column-->
+			</div>
+
+		</div>
+
+	</div>
+
+	</section>
+	<!--Section: Contact v.2-->
+
+	<!-- Footer -->
+	<footer class="page-footer font-small bg-primary pt-4">
+
+		<!--Footer Links-->
+		<div class="container-fluid text-center text-md-left">
+			<div class="row">
+
+				<!--First column-->
+				<div class="col-12 col-md-6">
+					<h5 class="text-uppercase">Footer Content</h5>
+					<p>Here you can use rows and columns here to organize your footer content.</p>
+				</div>
+				<!--/.First column-->
+
+				<div class="col-12 col-md-6 m-auto">
+					<div class="registrationButton" style="text-align: center;">
+					  <a href="./html/users.html" class="bttn">Shows Users!</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div align="center" class="socialbtns col-12">
+					<ul class="list-unstyled">
+						<li>
+							<a target="_blank" href="https://www.facebook.com/" class="fab fa-2x fa-facebook-f"></a>
+						</li>
+						<li>
+							<a target="_blank" href="https://www.facebook.com/" class="fab fa-2x fa-twitter"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--/.Footer Links-->
+
+		<!--Copyright-->
+		<div class="footer-copyright py-3 text-center">
+			© 2018 Copyright:
+			<a target="_blank" href="http://www.start-berlin.com/">START Berlin Jobs</a>
+		</div>
+		<!--/.Copyright-->
+
+	</footer>
+	<!--/.Footer-->
+
 
 </body>
 </html>
