@@ -3,7 +3,7 @@
         $('#login-btn').click((event) => {
             let name = $('#name').val(),
                 surname = $('#surname').val();
-
+            
             if (!name || !surname) {
                 return;
             }
