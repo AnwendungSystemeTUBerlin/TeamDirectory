@@ -2,6 +2,6 @@
     let currentUser = AuthService.getCurrentUser();
 
     if (!currentUser) {
-        window.location.href = '/login.html';
+        window.location.href = '/html/login.html';
     }
 }());
