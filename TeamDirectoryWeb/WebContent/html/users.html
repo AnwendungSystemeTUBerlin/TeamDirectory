@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>All users</title>
+
+	<!-- Importing external CSS -->
+	<link rel="stylesheet" href="../css/frameworks/bootstrap.css">
+    <link rel="stylesheet" href="../css/frameworks/mdb.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!-- Importing custom CSS -->
+	<link rel="stylesheet" href="../css/headers.css">
+	<link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="../css/userProfile.css">
+	<link rel="stylesheet" href="../css/comment.css">
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <!-- Importing external scripts -->
+    <script type="text/javascript" src="../js/frameworks/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/popper.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/frameworks/mdb.min.js"></script>
+
+    <!-- Importing custom scripts -->
+	<script src="../js/usersAndComments/api-service.js"></script>
+    <script src="../js/universal/linksSmoothScrolling.js"></script>
+    <script src="../js/universal/navbarAnimation.js"></script>
+    <script src="../js/usersAndComments/usersTable.js"></script>
+    <script src="../js/universal/copySymbol.js"></script>
+    <script src="../js/requests.js"></script>
+	<script src="../js/usersAndComments/user.js"></script>
+	<script src="../js/usersAndComments/comment.js"></script>
+    <script src="../js/usersSite.js"></script>
+
+    <!-- Navigation bar -->
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="../index.html"> <b>Team Directory</b></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="../index.html#aboutSection">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#faqSection">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#contactSection">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="usersSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 p-0">
+                    <div class="md-form">
+                        <input type="text" onkeyup='searchTable()' id="searchInput" class="form-control">
+                        <label for="name2" class="">Search</label>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover" id="databaseTable">
+                        <thead>
+                            <tr>
+                                <th scope="col" onclick="sortTable(0)">First Name</th>
+                                <th scope="col" onclick="sortTable(1)">Surname</th>
+                                <th scope="col" onclick="sortTable(2)">Age</th>
+                                <th scope="col" onclick="sortTable(3)">Study Course</th>
+                                <th scope="col" onclick="sortTable(4)">University</th>
+                                <th scope="col" onclick="sortTable(5)">Id</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="theTable">
+                        </tbody>
+                    </table>
+                </div>
+				<p id="emptySearch">
+					No users found. Try again!
+				</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="currentUserSection">
+        <div class="container">
+
+            <div class="row">
+                <div class"col-md-8 col-xl-9">
+                    <!-- Section heading -->
+                    <h2 class="section-heading h1 pt-4">Current User</h2>
+
+                    <!--Section description-->
+                    <p class="section-description">
+                        This is the user you have selected!
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class"col-md-8 col-xl-9">
+                    <div id="currentUserProfile">
+
+                      <div class="media mt-4 px-1">
+                        <img id="currentUserPhoto" class="card-img-100 d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/img (27).jpg" alt="Generic placeholder image">
+                        <div class="media-body">
+
+                          <h5 class="font-weight-bold mt-0 mb-0">
+                            <p id="currentUserName" class="text-default"></p>
+                          </h5>
+
+
+                          <ul class="list-unstyled list-inline mb-2 pt-1">
+                            <li class="list-inline-item">
+                              <a class="mr-1" target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-square fa-lg"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="mr-1" target="_blank" href="https://twitter.com/?lang=en"><i class="fab fa-lg fa-twitter"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="mr-1" target="_blank" href="https://plus.google.com/discover"><i class="fab fa-lg fa-google-plus"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="mr-1" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-lg fa-linkedin"> </i></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="mr-1" target="_blank" href="https://www.instagram.com/"><i class="fab fa-lg fa-instagram"> </i></a>
+                            </li>
+                          </ul>
+
+                          <ul class="list-unstyled mb-2 pt-1">
+							<li class="">
+								<a id="currentUserId" class="grey-text mr-1">Id: </a>
+							</li>
+                            <li class="">
+                              <a id="currentUserAge" class="grey-text mr-1">Age: </a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserStudyCourse" class="grey-text mr-1">Study Course: </a>
+                            </li>
+                            <li class="">
+                              <a id="currentUserUniversity" class="grey-text mr-1">University: </a>
+                            </li>
+                          </ul>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consectetur accusamus velit nostrum et magnam.
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class"col-8 col-md-8" style="width: 100%;">
+					<!-- Card header -->
+					<div id="commentsHeader" class="card-header border-0 font-weight-bold">comments</div>
+
+                    <div id="userComments">
+
+                    </div>
+
+					<div id="writeComment">
+				      <div class="form-group mt-4">
+				        <label for="quickReplyFormComment">Your comment</label>
+				        <textarea class="form-control" id="writeCommentText" rows="5"></textarea>
+
+				        <div class="text-center my-4">
+				          <button id="writeCommentButton" class="btn btn-primary btn-sm">Comment</button>
+				        </div>
+				      </div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>

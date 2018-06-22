@@ -1,0 +1,40 @@
+.navbar {
+  padding-left: 8% !important;
+  padding-right: 8% !important;
+  background-color: transparent;
+  top: 0px;
+  transition: top 1s linear;
+}
+
+.navbar li a{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.hideNav {
+  top: -100px;
+}
+
+.navbar.solid {
+  background-color: rgba(0,123,255, 0.95);
+  box-shadow: none !important;
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+}
+
+@media (min-width: 768px) {
+    nav a:after {
+        height: 2px;
+        width: 0%;
+        display: block;
+        content: ' ';
+        background-color: white;
+        transition: width 0.5s;
+    }
+    nav a:hover:after {
+        width: 100%;
+    }
+    nav a.navbar-brand:after {
+        content: none;
+    }
+}

@@ -3,15 +3,231 @@
 <head>
 	<meta charset="UTF-8">
 	<title>AnwSys Programmieraufgabe</title>
-	<link rel="stylesheet" type="text/css" href="./style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./api-service.js"></script>
-	<script type="text/javascript" src="./script.js"></script>
+
+	<!-- Importing external CSS -->
+	<link rel="stylesheet" href="./css/frameworks/bootstrap.css">
+    <link rel="stylesheet" href="./css/frameworks/mdb.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!-- Importing custom CSS -->
+	<link rel="stylesheet" href="./css/headers.css">
+	<link rel="stylesheet" href="./css/navigation.css">
+	<link rel="stylesheet" href="./css/home.css">
+	<link rel="stylesheet" href="./css/homeButton.css">
+	<link rel="stylesheet" href="./css/faq.css">
+	<link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-	<h1>Welcome!</h1>
-	<button id="showButton" type="button">Show Users</button>
-	<div id="content"></div>
+
+	<!-- Importing external scripts -->
+    <script type="text/javascript" src="./js/frameworks/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/frameworks/popper.min.js"></script>
+    <script type="text/javascript" src="./js/frameworks/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/frameworks/mdb.min.js"></script>
+
+    <!-- Importing custom scripts -->
+    <script src="./js/universal/linksSmoothScrolling.js"></script>
+    <script src="./js/universal/navbarAnimation.js"></script>
+	<script src="./js/faq/faq.js"></script>
+    <script src="./js/index.js"></script>
+
+    <!-- Navigation bar -->
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#homeSection"> <b>Team Directory</b></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#homeSection">Home</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="#aboutSection">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faqSection">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contactSection">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="homeSection" class="vertical-center">
+        <div class="container d-flex align-items-center justify-content-center">
+            <div class="justify-content-center text-center">
+                <div id="headers">
+                    <h1>Team Directory!</h1>
+                    <h1>Unlike Facebook, we are actually going to tell you when we sell your data!</h1>
+                </div>
+                <button class="databaseButton">
+                    <a href="./html/users.html" class="bttn">
+                        Show Users
+                    </a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+	<section id="aboutSection">
+		<div class="container">
+			<div class="row">
+				<div class"col-md-8 col-xl-9">
+
+					<!-- Section heading -->
+					<h2 class="section-heading h1 pt-4">About Section</h2>
+
+					<!--Section description-->
+					<p class="section-description">
+						Learn more about us!
+					</p>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="faqSection">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class"col-md-8 col-xl-9">
+
+					<!-- Section heading -->
+					<h2 class="section-heading h1 pt-4">FAQ Section</h2>
+
+					<!--Section description-->
+					<p class="section-description">
+						Mail us at teamdirectory@aws.com!
+					</p>
+
+					<div id="accordion">
+
+						<div class="card">
+						  <div class="card-header" id="headingZero">
+							<h5 class="mb-0">
+							  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
+								What is START Berlin?
+								<i class="fa fa-angle-down"></i>
+							  </button>
+							</h5>
+						  </div>
+						  <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordion">
+							<div class="card-body">
+								We are a student entrepreneurship club, affiliated with all Berlin-based universities. Our team is dedicated to supporting students in their career by providing them with unique opportunities to engage with representatives from all aspects of Berlin’s thriving entrepreneurial ecosystem.
+							</div>
+						  </div>
+						</div>
+
+						<div class="card">
+							<div class="card-header" id="headingOne">
+							  <h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+								  What does START JOBS do?
+								  <i class="fa fa-angle-down"></i>
+								</button>
+							  </h5>
+							</div>
+							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+							  <div class="card-body">
+								  We’re a marketplace that connects high-quality job seekers with companies that are looking to hire them. Every week, we introduce growing technology companies to high-quality software engineers, designers, product managers, and businesspeople from the START JOBS community.
+							  </div>
+							</div>
+						</div>
+
+					  <div class="card">
+						<div class="card-header" id="headingTwo">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							  What's an START JOBS candidate batch?
+							  <i class="fa fa-angle-down"></i>
+							</button>
+						  </h5>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+							<div class="card-body">
+								It's a hand-picked collection of technical, product, and business candidates that we send to companies on the START JOBS platform. Only a small percentage of candidates who sign up for START JOBS make it into a candidate batch and, for the most part, each candidate only gets to participate in one batch. Companies reach out to batch candidates directly and take them through their normal hiring process.
+							</div>
+						</div>
+					  </div>
+
+					  <div class="card">
+						<div class="card-header" id="headingThree">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							  What types of companies do you work with?
+							  <i class="fa fa-angle-down"></i>
+							</button>
+						  </h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						  <div class="card-body">
+							95% of companies using the START JOBS platform are privately-held venture-backed startups. The remainder are larger technology companies and organizations that have startup-like opportunities. Our goal is to build a network of the highest-quality organizations in the world, which means that we only approve about 50% of the companies that try to join START JOBS. We don't work with recruiting agencies.
+						  </div>
+						</div>
+					  </div>
+
+					  <div class="card">
+						<div class="card-header" id="headingFour">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							  What types of candidates do you work with?
+							  <i class="fa fa-angle-down"></i>
+							</button>
+						  </h5>
+						</div>
+						<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+						  <div class="card-body">
+							We group candidates into three expertise categories: technical, product, and business. Technical candidates are engineers (backend, frontend, fullstack, data, QA, DevOps, hardware, and more). Product candidates are product designers and product managers. Business candidates cover a broad range of roles (sales, marketing, business development, operations, finance, human resources, legal, and more).
+						  </div>
+						</div>
+					  </div>
+
+					  <div class="card">
+						<div class="card-header" id="headingFive">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								What if I don't have a resume?
+							  <i class="fa fa-angle-down"></i>
+							</button>
+						  </h5>
+						</div>
+						<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+						  <div class="card-body">
+								Please try to put something together, even if it's just a PDF export of your LinkedIn profile. Resumes aren't perfect, but they help give us a structured summary of our candidates' work and education experience.
+						  </div>
+						</div>
+					  </div>
+
+					  <div class="card">
+						<div class="card-header" id="headingSix">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+								When will I hear from you?
+							  <i class="fa fa-angle-down"></i>
+							</button>
+						  </h5>
+						</div>
+						<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+						  <div class="card-body">
+							Jobs at technology companies are highly specialized and competitive. Given that, only a small subset of candidates who apply to START JOBS get featured in a candidate batch. Technical and product candidates usually hear from us within 7-10 days of signing up. For business candidates, the timeline can be a little longer. Because of candidate volume, we can only respond to candidates when they are selected for an START JOBS batch.
+						  </div>
+						</div>
+					  </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 </body>
 </html>
