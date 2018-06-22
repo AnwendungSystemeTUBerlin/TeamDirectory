@@ -5,21 +5,44 @@
     <meta charset="UTF-8">
     <title>AnwSys Programmieraufgabe</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./script.js" async></script>
+    
+	<link rel="stylesheet" href="./css/frameworks/bootstrap.css">
+	<link rel="stylesheet" href="./css/frameworks/mdb.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	  crossorigin="anonymous">
+
+    <script type="text/javascript" src="./js/frameworks/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/frameworks/popper.min.js"></script>
+	<script type="text/javascript" src="./js/frameworks/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/frameworks/mdb.min.js"></script>
+
+    <script src="./api-service.js"></script>
+    <script src="./auth-service.js"></script>
+    <script src="./login-controller.js"></script>
 </head>
 
 <body>
-    <div>
-        <h1>Welcome!</h1>
-        <label>Name</label>
-        <input type="text">
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+            <h1>
+                Team Directory Login
+            </h1>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+            <form>
+                <label for="name" class="grey-text">Name</label>
+                <input type="text" id="name" class="form-control">
+                <br>
+                <label for="surname" class="grey-text">Surname</label>
+                <input type="text" id="surname" class="form-control">
+                <div class="text-center mt-4">
+                    <button id="login-btn" class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <label>Surname</label>
-    <input type="text">
-    </div>
-    <button>Log in</button>
 </body>
 
 </html>
