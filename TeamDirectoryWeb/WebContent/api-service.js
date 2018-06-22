@@ -2,9 +2,12 @@ const ApiService = (() => {
     const api = 'http://localhost:8080/TeamDirectoryWeb/api'
     
     function $request (type, url, data) {
-        return $.ajax({
+        data = JSON.stringify(data);
+    	
+    	return $.ajax({
             type,
             dataType: 'json',
+            contentType: 'application/json',
             url,
             data
         });
@@ -34,8 +37,7 @@ const ApiService = (() => {
         },
         Comment: {
             postComment(comment) {
-                let url = `${api}/comments/`;
-
+                let url = `${api}/comments`;
                 return $request('POST', url, comment);
             },
             getComment() {

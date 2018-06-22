@@ -15,7 +15,7 @@
                 AuthService.setCurrentUser(user);
                 
                 window.alert("login" + user);
-                //window.location.href = '/';
+                window.location.href = '/TeamDirectoryWeb';
             });
         });
     })

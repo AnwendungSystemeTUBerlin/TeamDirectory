@@ -5,7 +5,7 @@ const universityLabel = "University: ";
 
 function setupProfile(id){
 
-    ApiService.User.getById(id).done(function(user){
+    ApiService.User.getUser().byId(id).done(function(user){
         setupProfileData(user);
     });
 
@@ -20,9 +20,11 @@ function setupProfileData(user){
     let age = user.age;
     let studyCourse = user.studyCourse;
     let university = user.university;
+    let imgPath = "../img/"+user.imgPath;
 
     $("#currentUserName").text(firstName + " " + surname);
     $("#currentUserAge").text(ageLabel + age);
     $("#currentUserStudyCourse").text(studyCourseLabel + studyCourse);
     $("#currentUserUniversity").text(universityLabel + university);
+    $("#currentUserPhoto").attr("src", imgPath);
 }

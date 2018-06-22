@@ -1,14 +1,21 @@
 package de.tub.ise.as.td.web;
 
+import java.io.StringReader;
+
 import javax.ejb.EJB;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import de.tub.ise.as.td.ejb.CommentsManagement;
+import de.tub.ise.as.td.entity.Comment;
 
 @Path("/comments")
 public class CommentsService {
@@ -40,6 +47,20 @@ public class CommentsService {
     	} else {
     		return "";
     	}
+    }
+    
+    @POST
+    @Produces("application/json")
+    public String postCommentsAsJson(String comment) {
+    	System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    	System.out.println(comment);
+    	JsonReader jsonr = Json.createReader(new StringReader(comment));
+    	JsonObject jsonObject = jsonr.readObject();
+    	
+    	Comment newComment = new Comment(jsonObject.getInt("receiverID"), jsonObject.getInt("posterID"), jsonObject.getString("content"));
+    	
+    	Jsonb jsonb = JsonbBuilder.create();
+    	return jsonb.toJson(newComment);
     }
 
 }

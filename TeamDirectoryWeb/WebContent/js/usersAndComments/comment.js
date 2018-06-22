@@ -77,54 +77,18 @@ function saveComment(){
 }
 
 function createComment(){
+	let user = AuthService.getCurrentUser();
+	
     let content = $("#writeCommentText").val();
-    let author = "Ivan Doe";
-    let id = 5; // needs to be unique for each comment
-    let posterId = 123;
+    let posterId = user.id;
     let receiverId = $("#currentUserId").text().split(" ")[1];
-    let date = currentDate();
-    let time = currentTime();
 
     let comment = {
-        "author": author,
         "content": content,
-        "id": id,
-        "posterId": posterId,
-        "receiverId": receiverId,
-        "date": date,
-        "time": time
+        "posterID": posterId,
+        "receiverID": receiverId,
     }
 
     return comment;
 
-}
-
-function currentDate(){
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth()+1; //January is 0!
-
-    let yyyy = today.getFullYear();
-    if(dd<10){
-        dd = '0' + dd;
-    }
-    if(mm<10){
-        mm = '0 '+ mm;
-    }
-    return dd+'/'+mm+'/'+yyyy;
-}
-
-function currentTime(){
-    let today = new Date();
-    let hours = today.getHours();
-    let minutes =  today.getMinutes();
-
-    if(hours<10){
-        hours = '0'+ hours;
-    }
-    if(minutes<10){
-        minutes = '0' + minutes;
-    }
-
-    return hours + ":" + minutes;
 }
