@@ -21,7 +21,7 @@ public class ApplicationInit {
 		User stefan = new User("Yovchev", "Stefan");
 		stefan.setUniversity("TU Berlin");
 		stefan.setStudyCourse("Wirtschaftsinformatik");
-		stefan.setAge(0);
+		stefan.setAge(20);
 		em.persist(stefan);
 				
 		//Sebastian Führ
@@ -35,7 +35,7 @@ public class ApplicationInit {
 		User nikolay = new User("Nikolov", "Nikolay");
 		nikolay.setUniversity("TU Berlin");
 		nikolay.setStudyCourse("Wirtschaftsinformatik");
-		nikolay.setAge(0);
+		nikolay.setAge(19);
 		em.persist(nikolay);
 		
 		//Victor
