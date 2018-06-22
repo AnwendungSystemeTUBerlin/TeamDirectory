@@ -18,7 +18,7 @@ public class ApplicationInit {
 	@PostConstruct
 	public void ensureUsersExist() {
 		//Stefan
-		User stefan = new User("Yovchev", "Stefan");
+		User stefan = new User("Yovchev", "Stephan");
 		stefan.setUniversity("TU Berlin");
 		stefan.setStudyCourse("Wirtschaftsinformatik");
 		stefan.setAge(20);
