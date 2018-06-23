@@ -1,0 +1,43 @@
+.socialbtns a, .socialbtns a:hover {
+  text-decoration: none; }
+
+.socialbtns, .socialbtns ul, .socialbtns li {
+  margin: 0;
+  padding: 5px; }
+
+.socialbtns li {
+  list-style: none outside none;
+  display: inline-block; }
+
+.socialbtns .fab, .fas, .fa {
+    color: #007bff;
+}
+
+.socialbtns .fab {
+  background-color: white;
+  text-align: middle;
+  width: 50px;
+  height: 50px;
+  padding-top: 12px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transform: rotate(-360deg);
+  -moz-transform: rotate(-360deg);
+  -webkit-transform: rotate(-360deg);
+  -o-transform: rotate(-360deg); }
+
+footer .socialbtns, footer .fab:hover, footer .fa:hover, footer .fas:hover {
+  transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg); }
