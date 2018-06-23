@@ -10,13 +10,13 @@ const UserController = (() => {
             $(document).ready(() => {
                 (function initDOM () {
                     $('body').on('click', 'table tr.user-row, .commentAuthor, .commentAuthorPhoto', event => {
+                    	console.log(123)
                         let id;
                         
                         let $target = $(event.target);
                         
                         switch ($target.attr('class')) {
                             case 'user-data':
-                            	console.log($target);
                                 id = id = $target.parent().children()[5].innerHTML;
                                 break;
                             case 'commentAuthor':
@@ -26,7 +26,7 @@ const UserController = (() => {
                                 id = $target.parent().attr('id').split("-")[0];
                                 break;
                         }
-
+                
                         ApiService.User.getUser().byId(id).done(user => {
                             $("#currentUserId").text(user.id);
                             $("#currentUserName").text(`${user.name} ${user.surname}`);
@@ -36,7 +36,10 @@ const UserController = (() => {
                             $("#currentUserPhoto").attr("src", `../img/${user.imgPath}`);
 
                             $("#currentUserSection").css("display", "block");
-
+                            
+                            // Destroy the previous instance of the controller
+                            CommentController.destroy();
+                            // Initialize the new one
                             CommentController.init(id);
                         });
 

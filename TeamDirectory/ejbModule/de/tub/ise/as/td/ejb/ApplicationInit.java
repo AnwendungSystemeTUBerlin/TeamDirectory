@@ -18,14 +18,14 @@ public class ApplicationInit {
 	@PostConstruct
 	public void ensureUsersExist() {
 		//Stefan
-		User stefan = new User("Yovchev", "Stephan");
+		User stefan = new User("Stefan", "Yovchev");
 		stefan.setUniversity("TU Berlin");
 		stefan.setStudyCourse("Wirtschaftsinformatik");
 		stefan.setAge(20);
 		em.persist(stefan);
 				
 		//Sebastian Führ
-		User sebastian = new User("Führ", "Sebastian");
+		User sebastian = new User("Sebastian", "Führ");
 		sebastian.setUniversity("TU Berlin");
 		sebastian.setStudyCourse("Wirtschaftsinformatik");
 		sebastian.setAge(19);
@@ -33,7 +33,7 @@ public class ApplicationInit {
 		em.persist(sebastian);
 		
 		//Nikolay Nikolov
-		User nikolay = new User("Nikolov", "Nikolay");
+		User nikolay = new User("Nikolay", "Nikolov");
 		nikolay.setUniversity("TU Berlin");
 		nikolay.setStudyCourse("Wirtschaftsinformatik");
 		nikolay.setAge(19);

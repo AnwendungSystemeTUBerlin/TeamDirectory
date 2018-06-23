@@ -1,12 +1,10 @@
 package de.tub.ise.as.td.ejb;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import de.tub.ise.as.td.entity.Comment;
 
@@ -26,8 +24,7 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getComments() {
-		TypedQuery<Comment> query = em.createQuery("SELECT u FROM Comment u", Comment.class);
-		return query.getResultList();
+		return em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
 	}
 	
 	/**
@@ -36,14 +33,9 @@ public class CommentsManagement {
 	 * @param comment
 	 */
 	public void saveComment(Comment comment) {
-		 em.getTransaction().begin();
-		 
-		 if (!em.contains(comment)) {
-	        em.persist(comment);
-	        em.flush();
-	    }
-	    
-	    em.getTransaction().commit();
+		Comment c = new Comment(comment.getReceiverID(), comment.getPosterID(), comment.getContent());
+		
+		em.persist(c);
 	}
 	
 	/**
@@ -54,14 +46,7 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentsByPosterID(int posterID) {
-		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
-		List<Comment> commentsList = new ArrayList<Comment>();
-		for (int i=0; i<comments.size(); i++) {
-			if (comments.get(i).getPosterID() == posterID) {
-				commentsList.add(comments.get(i));
-			}
-		}
-		return commentsList;
+		return em.createQuery(String.format("SELECT c, u.name FROM Comment c, User u WHERE c.posterID = %d", posterID), Comment.class).getResultList();
 	}
 	
 	/**
@@ -72,14 +57,7 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentsByReceiverID(int receiverID) {
-		List<Comment> comments = em.createQuery("SELECT c FROM Comment c", Comment.class).getResultList();
-		List<Comment> commentsList = new ArrayList<Comment>();
-		for (int i=0; i<comments.size(); i++) {
-			if (comments.get(i).getPosterID() == receiverID) {
-				commentsList.add(comments.get(i));
-			}
-		}
-		return commentsList;
+		return em.createQuery(String.format("SELECT c, u FROM Comment c, User u WHERE c.receiverID = %d AND u.id = c.posterID", receiverID), Comment.class).getResultList();
 	}
 	
 }

@@ -6,7 +6,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import de.tub.ise.as.td.entity.User;
 
@@ -29,8 +28,7 @@ public class UserManagement {
 	 * @return List of User
 	 */
 	public List<User> getUsers() {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
-		return query.getResultList();
+		return em.createQuery("SELECT u FROM User u", User.class).getResultList();
 	}
 	
 	/**
@@ -40,13 +38,7 @@ public class UserManagement {
 	 * @return User
 	 */
 	public User getUser(int userID) {
-		List<User> users = em.createQuery("SELECT u FROM User u", User.class).getResultList();
-		for (int i=0; i < users.size(); i++) {
-			if (users.get(i).getId() == userID) {
-				return users.get(i);
-			}
-		}
-		return null;
+		return em.createQuery(String.format("SELECT u FROM User u WHERE u.id = %d", userID), User.class).getSingleResult();
 	}
 	
 	/**
@@ -60,17 +52,23 @@ public class UserManagement {
 	 * @return User
 	 */
 	public User getUser(String name, String surname) {
-		List<User> users = em.createQuery("SELECT u FROM User u", User.class).getResultList();
-		for (int i=0; i < users.size(); i++) {
-			if (users.get(i).getName() == name && users.get(i).getSurname() == surname) {
-				return users.get(i);
-			}
+		User user = em.createQuery(String.format("SELECT u FROM User u WHERE u.name = \"%s\" AND u.surname = \"%s\"", name, surname), User.class).getSingleResult();
+
+		if (user != null) {
+			return user;
 		}
-		User newUser = new User(name, surname);
-		newUser.setAge(-1);
-		newUser.setUniversity("");
-		newUser.setStudyCourse("");
-		return newUser;
+		
+		user = new User(name, surname);
+		user.setAge(-1);
+		user.setUniversity("");
+		user.setStudyCourse("");
+		
+		em.persist(user);
+		
+		return user;
 	}
+	
+	
+	
 	
 }

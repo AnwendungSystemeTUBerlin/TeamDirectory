@@ -1,6 +1,16 @@
 const UserTableDirective = (() => {
+	
+	$(document).ready(() => {
+		let navbarHeight = $("#navbar").css("height").split("px")[0];
+
+	    $("#usersSection").css("margin-top", (navbarHeight * 1.5) + "px");
+	    $("#navbar").css("background-color", "rgba(0,123,255, 0.95)");
+	});
+	
     return {
         sortTable(n) {
+        	//https://www.w3schools.com/howto/howto_js_sort_table.asp
+        	
             let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("databaseTable");
             switching = true;
@@ -56,6 +66,8 @@ const UserTableDirective = (() => {
             }
         },
         searchTable() {
+        	//https://stackoverflow.com/a/40358801/9698409
+        	
             let emtpySearch = true;
 
             $("#emptySearch").css("display", "none");
@@ -87,7 +99,6 @@ const UserTableDirective = (() => {
 
             if (emtpySearch) {
                 $("#emptySearch").css("display", "block");
-                console.log("Nothing found!");
             }
         }
     }

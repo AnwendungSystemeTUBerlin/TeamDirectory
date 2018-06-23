@@ -31,7 +31,7 @@ const ApiService = (() => {
                     },
                     byName(name, surname) {
                         let url = `${api}/user?name=${name}&surname=${surname}`;
-                        window.alert("api-service: "+JSON.stringify($request('GET', url, null)));
+
                         return $request('GET', url, null);
                     }
                 }

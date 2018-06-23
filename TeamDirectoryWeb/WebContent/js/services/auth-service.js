@@ -1,14 +1,14 @@
 const AuthService = (() => {
     return {
         login(name, surname) {
-        	//window.alert("auth-service: "+name +"," + surname);
-            return ApiService.User.getUser().byName(name, surname);
+            ApiService.User.getUser().byName(name, surname).done(user => {
+            	localStorage.setItem('user', JSON.stringify(user));
+
+                window.location.href = '/TeamDirectoryWeb';
+            });
         },
         getCurrentUser() {
             return JSON.parse(localStorage.getItem('user'));
-        },
-        setCurrentUser(user) {
-            return localStorage.setItem('user', JSON.stringify(user));
         },
         removeCurrentUser() {
             localStorage.removeItem('user');

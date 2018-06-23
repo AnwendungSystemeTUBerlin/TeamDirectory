@@ -12,12 +12,8 @@
                 $(event.target).prop('disabled', true);
                 
                 
-                AuthService.login(name, surname).done(user => {
-                    AuthService.setCurrentUser(user);
-                    
-                    window.location.href = '/TeamDirectoryWeb';
-                });
+                AuthService.login(name, surname);
             });
         })();
-    })
+    });
 })();

@@ -43,7 +43,6 @@ public class CommentsService {
     	if (posterID != 0) {
         	return jsonb.toJson(commentsMgmt.getCommentsByPosterID(posterID));
     	} else if (receiverID != 0) {
-    		System.out.println(jsonb.toJson(commentsMgmt.getCommentsByReceiverID(receiverID)));
     		return jsonb.toJson(commentsMgmt.getCommentsByReceiverID(receiverID));
     	} else {
     		return "";

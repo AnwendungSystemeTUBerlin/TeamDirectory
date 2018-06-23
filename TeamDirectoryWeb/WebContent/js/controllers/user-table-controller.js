@@ -20,11 +20,6 @@ const UserTableController = (() => {
                         offset: 300
                     });
 
-                     let navbarHeight = $("#navbar").css("height").split("px")[0];
-
-                    $("#usersSection").css("margin-top", (navbarHeight * 1.5) + "px");
-                    $("#navbar").css("background-color", "rgba(0,123,255, 0.95)");
-
                     setupCopySymbol();
                     linkSmoothScrolling();
                     navbarAnimation();

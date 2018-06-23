@@ -3,6 +3,8 @@
 	<name>TeamDirectoryWeb</name>
 	<comment></comment>
 	<projects>
+		<project>TeamDirectory</project>
+		<project>TeamDirectoryEAR</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
