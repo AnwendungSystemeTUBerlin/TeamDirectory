@@ -37,7 +37,7 @@ const CommentController = (() => {
                     	let comment = c[0];                	
                     	
                     	comment['author'] = `${c[1]['name']} ${c[1]['surname']}`;
-                    	comment['authorImg'] = `../img/${c[1]['imgPath']}`;
+                    	comment['authorImg'] = `../assets/img/${c[1]['imgPath']}`;
                     	
                     	$('#userComments').append([comment].map(CommentTemplate).join(''));
                     });
@@ -51,7 +51,7 @@ const CommentController = (() => {
                         posterID = user.id;
                         receiverID = +($("#currentUserId").text()),
                         author = `${user.name} ${user.surname}`
-                        authorImg = `../img/${user.imgPath}`;
+                        authorImg = `../assets/img/${user.imgPath}`;
                     
                     if (!content) {
                         return;

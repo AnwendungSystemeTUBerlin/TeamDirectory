@@ -22,6 +22,7 @@ public class ApplicationInit {
 		stefan.setUniversity("TU Berlin");
 		stefan.setStudyCourse("Wirtschaftsinformatik");
 		stefan.setAge(20);
+		stefan.setImgPath("img_stefan.jpg");
 		em.persist(stefan);
 				
 		//Sebastian Führ
@@ -37,6 +38,7 @@ public class ApplicationInit {
 		nikolay.setUniversity("TU Berlin");
 		nikolay.setStudyCourse("Wirtschaftsinformatik");
 		nikolay.setAge(19);
+		nikolay.setImgPath("img_nikolay.jpg");
 		em.persist(nikolay);
 		
 		//Victor

@@ -33,7 +33,7 @@ const UserController = (() => {
                             $("#currentUserAge").text(`${labels.age} ${user.age}`);
                             $("#currentUserStudyCourse").text(`${labels.studyCourse} ${user.studyCourse}`);
                             $("#currentUserUniversity").text(`${labels.university} ${user.university}`);
-                            $("#currentUserPhoto").attr("src", `../img/${user.imgPath}`);
+                            $("#currentUserPhoto").attr("src", `../assets/img/${user.imgPath}`);
 
                             $("#currentUserSection").css("display", "block");
                             

@@ -20,6 +20,7 @@ section .row {
 }
 
 body{
+	min-height: 100vh;
     text-decoration: none;
 }
 

@@ -1,0 +1,11 @@
+#contactSection .row {
+margin: 0px; }
+
+#contactSection .row .col-10{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#contactSubmitDiv{
+    text-align: center;
+}
