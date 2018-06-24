@@ -19,8 +19,7 @@ const UserTableController = (() => {
                         target: ".navbar",
                         offset: 300
                     });
-
-                    setupCopySymbol();
+                    
                     linkSmoothScrolling();
                     navbarAnimation();
                 })();

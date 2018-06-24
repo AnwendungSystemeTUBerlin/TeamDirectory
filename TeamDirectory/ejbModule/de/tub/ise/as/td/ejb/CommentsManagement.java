@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import de.tub.ise.as.td.entity.Comment;
@@ -46,7 +47,11 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentsByPosterID(int posterID) {
-		return em.createQuery(String.format("SELECT c, u.name FROM Comment c, User u WHERE c.posterID = %d", posterID), Comment.class).getResultList();
+		try {
+			return em.createQuery(String.format("SELECT c, u.name FROM Comment c, User u WHERE c.posterID = %d", posterID), Comment.class).getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -57,7 +62,11 @@ public class CommentsManagement {
 	 * @return List of Comments.
 	 */
 	public List<Comment> getCommentsByReceiverID(int receiverID) {
-		return em.createQuery(String.format("SELECT c, u FROM Comment c, User u WHERE c.receiverID = %d AND u.id = c.posterID", receiverID), Comment.class).getResultList();
+		try {
+			return em.createQuery(String.format("SELECT c, u FROM Comment c, User u WHERE c.receiverID = %d AND u.id = c.posterID", receiverID), Comment.class).getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 }

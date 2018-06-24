@@ -10,7 +10,6 @@ const UserController = (() => {
             $(document).ready(() => {
                 (function initDOM () {
                     $('body').on('click', 'table tr.user-row, .commentAuthor, .commentAuthorPhoto', event => {
-                    	console.log(123)
                         let id;
                         
                         let $target = $(event.target);

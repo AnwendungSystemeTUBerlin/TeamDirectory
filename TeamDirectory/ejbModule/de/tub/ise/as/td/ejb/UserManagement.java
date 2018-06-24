@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import de.tub.ise.as.td.entity.User;
@@ -38,7 +39,11 @@ public class UserManagement {
 	 * @return User
 	 */
 	public User getUser(int userID) {
-		return em.createQuery(String.format("SELECT u FROM User u WHERE u.id = %d", userID), User.class).getSingleResult();
+		try {
+			return em.createQuery(String.format("SELECT u FROM User u WHERE u.id = %d", userID), User.class).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -52,20 +57,18 @@ public class UserManagement {
 	 * @return User
 	 */
 	public User getUser(String name, String surname) {
-		User user = em.createQuery(String.format("SELECT u FROM User u WHERE u.name = \"%s\" AND u.surname = \"%s\"", name, surname), User.class).getSingleResult();
-
-		if (user != null) {
+		try {
+			return em.createQuery(String.format("SELECT u FROM User u WHERE u.name = \"%s\" AND u.surname = \"%s\"", name, surname), User.class).getSingleResult();
+		} catch (NoResultException e) {
+			User user = new User(name, surname);
+			user.setAge(-1);
+			user.setUniversity("");
+			user.setStudyCourse("");
+			
+			em.persist(user);
+			
 			return user;
 		}
-		
-		user = new User(name, surname);
-		user.setAge(-1);
-		user.setUniversity("");
-		user.setStudyCourse("");
-		
-		em.persist(user);
-		
-		return user;
 	}
 	
 	
