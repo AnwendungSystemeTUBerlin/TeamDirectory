@@ -1,6 +1,7 @@
 #homeSection {
     height: 100vh;
 
+    /* Photo by Jonathan Daniels on Unsplash - https://unsplash.com/photos/kxgMWWVbvcw */
     background-image: url(../assets/backgrounds/homeBackground.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;

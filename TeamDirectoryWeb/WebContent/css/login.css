@@ -1,0 +1,23 @@
+#loginSection{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+    /* Photo by garrett parker on Unsplash - https://unsplash.com/photos/DlkF4-dbCOU */
+    background-image: url(../assets/backgrounds/loginBackground.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+    background-position: center top;
+
+}
+
+#loginSection h1, #loginSection label{
+    color: white !important;
+}
+
+#loginSection h1{
+    font-weight: 350;
+}

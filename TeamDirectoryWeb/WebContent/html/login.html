@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>AnwSys Programmieraufgabe</title>
-    
+
     <!--External CSS-->
 	<link rel="stylesheet" href="./../css/frameworks/bootstrap.css">
 	<link rel="stylesheet" href="./../css/frameworks/mdb.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="./../css/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./../css/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="./../css/login.css">
 
      <!-- External scripts -->
     <script type="text/javascript" src="./../js/frameworks/jquery.min.js"></script>
@@ -31,31 +32,31 @@
 </head>
 
 <body>
-   	<div style="display: flex; align-items: center; justify-content: center;">
-		<div class="container">
-		    <div class="row">
-		        <div class="col-lg-4 offset-lg-4">
-		            <h1>
-		                Team Directory Login
-		            </h1>
-		        </div>
-		    </div>
-		    <div class="row">
-		        <div class="col-lg-4 offset-lg-4">
-		            <form>
-		                <label for="name" class="grey-text">Name</label>
-		                <input type="text" id="name" class="form-control">
-		                <br>
-		                <label for="surname" class="grey-text">Surname</label>
-		                <input type="text" id="surname" class="form-control">
-		                <div class="text-center mt-4">
-		                    <button id="login-btn" class="btn btn-primary" type="submit">Login</button>
-		                </div>
-		            </form>
-		        </div>
-		    </div>
-	    </div>
-    </div>	
+    <section id="loginSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <h1>
+                        Team Directory Login
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <form>
+                        <label for="name" class="grey-text">Name</label>
+                        <input type="text" id="name" class="form-control">
+                        <br>
+                        <label for="surname" class="grey-text">Surname</label>
+                        <input type="text" id="surname" class="form-control">
+                        <div class="text-center mt-4">
+                            <button id="login-btn" class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

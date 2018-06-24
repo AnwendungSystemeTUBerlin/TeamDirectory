@@ -29,7 +29,6 @@ td{
     margin: auto;
 }
 
-/* Tooltip text */
 .tooltip {
     visibility: hidden;
     width: 50px;
@@ -40,7 +39,6 @@ td{
     border-radius: 6px;
     opacity: 1;
 
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 9999;
     bottom: 90%;
