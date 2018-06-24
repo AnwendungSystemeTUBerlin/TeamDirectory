@@ -11,3 +11,9 @@
 .aboutSectionCol {
 	margin: 0 15rem;
 }
+
+@media (min-width:801px){
+    #aboutSection .container .row .col-md-4{
+        margin: 0 15rem;
+    }
+}
